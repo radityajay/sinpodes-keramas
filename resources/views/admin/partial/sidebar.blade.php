@@ -38,8 +38,8 @@
                         <span>Artikel</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li class="{{ (request()->is('transport/ride-rate/*')) ? 'mm-active' : '' }}"><a href="{{ url('transport/ride-rate') }}">Pengumuman</a></li>
-                        <li class="{{ (request()->is('transport/rent-rate/*')) ? 'mm-active' : '' }}"><a href="{{ url('transport/rent-rate') }}">Berita</a></li>
+                        <li class="{{ (request()->is('admin/announcement/*')) ? 'mm-active' : '' }}"><a href="{{ route('announcement.index') }}">Pengumuman</a></li>
+                        {{-- <li class="{{ (request()->is('admin/announcement/*')) ? 'mm-active' : '' }}"><a href="{{ route('announcement.index') }}">Berita</a></li> --}}
                     </ul>
                 </li>
 

@@ -14,4 +14,5 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::resource('pkk-apparature', 'Admin\PkkController');
     Route::resource('linmas-apparature', 'Admin\LinmasController');
     Route::resource('kt-apparature', 'Admin\KarangTarunaController');
+    Route::resource('announcement', 'Admin\AnnouncementController');
 });

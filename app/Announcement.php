@@ -25,7 +25,8 @@ class Announcement extends Model
         'sub_title',
         'date',
         'description',
-        'photo'
+        'photo',
+        'is_active'
     ];
 
     protected static function boot()
