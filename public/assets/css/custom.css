@@ -1,0 +1,60 @@
+[v-cloak]>* {
+    display: none;
+}
+
+[v-cloak]::before {
+    content: "Loading...";
+}
+
+.btn-keramas {
+    background-color: #027e06;
+    border-color: #027e06;
+    color: #fff;
+}
+
+.navbar-brand-box {
+    padding: 0 1.5rem;
+    width: 240px;
+    background-color: #027e06 !important;
+}
+
+.mm-active {
+    color: #027e06 !important;
+}
+
+.mm-active>a {
+    color: #027e06 !important;
+}
+
+.mm-active>a>i {
+    color: #027e06 !important;
+}
+
+.mm-active > i{
+    color: #027e06 !important;
+}
+
+.mm-active>.active {
+    color: #027e06 !important;
+}
+
+.mm-active .active {
+    color: #027e06 !important;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #027e06 !important;
+    border-color: #027e06 !important;
+}
+
+a {
+    color: #027e06;
+    text-decoration: none;
+}
+
+.btn:hover {
+    color: #d9d9d9 !important;
+    text-decoration: none;
+  }
