@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-@section('title', 'Pengumuman')
+@section('title', 'Berita')
 @section('content')
 
 <div>
@@ -9,7 +9,7 @@
             <div class="centered">
                 <div class="container">
                     <div class="visual-text visual-center">
-                        <h1 class="visual-title visual-sub-title">Pengumuman </h1>
+                        <h1 class="visual-title visual-sub-title">Berita </h1>
                     </div>
                 </div>
             </div>
@@ -22,12 +22,12 @@
             <div class="container-fluid">
                 <div class="row multiple-row">
                     @foreach ($data as $item)
-                    @if ($item->is_active == 1)
+                    {{-- @if ($item->is_active == 1) --}}
                     <div class="col-md-6 col-lg-3">
                         <div class="col-wrap">
                             <div class="post-grid reverse-grid">
                                 <div class="img-block post-img">
-                                    <a href="#"><img src="{{ $item->photo_url }}" alt="images"></a>
+                                    <a href="#"><img src="{{ $item->photo_url }}" class="img-tl" alt="images"></a>
                                     <time class="post-date" datetime="2016-10-10">{{ date('d M Y', strtotime($item->date)) }}</time>
                                 </div>
                                 <div class="post-text-block bg-gray-light">
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                    @endif
+                    {{-- @endif --}}
                     @endforeach
                 </div>
                 <div class="btn-container full-width-btn top-space">

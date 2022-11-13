@@ -13,16 +13,16 @@
                                 data-target="#mega-menu">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <a class="navbar-brand mr-auto m-sm-auto" href="index.html"> <img src="/assets/web/img/logoo.png"
+                            <a class="navbar-brand mr-auto m-sm-auto" href="{{ url('/')}}"> <img src="/assets/web/img/logoo.png"
                                     alt="keramas" style="height: 40px !important"> <img src="/assets/web/img/logoo.png"
                                     alt="keramas" style="height: 40px !important"> </a>
                             <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown" data-animation="fadeIn">
-                                        <a href="index.html" data-title="Home"> Home </a>
+                                        <a href="{{ url('/')}}" data-title="Home"> Home </a>
                                     </li>
                                     <li class="dropdown" data-animation="fadeIn">
-                                        <a href="about.html" data-title="Profil Desa"> Profil Desa </a>
+                                        <a href="{{ route('profildesa.index')}}" data-title="Profil Desa"> Profil Desa </a>
                                     </li>
                                     <li class="dropdown" data-animation="fadeIn">
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="index.html"
@@ -48,7 +48,7 @@
                                                 <a href="{{ route('announ.index')}}"> Pengumuman</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="berita.html"> Berita</a>
+                                                <a href="{{ route('berita.index')}}"> Berita</a>
                                             </li>
                                         </ul>
                                     </li>

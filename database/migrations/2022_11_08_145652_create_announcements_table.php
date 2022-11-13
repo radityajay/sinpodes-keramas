@@ -18,7 +18,7 @@ class CreateAnnouncementsTable extends Migration
             $table->string('title');
             $table->string('sub_title')->nullable();
             $table->dateTime('date');
-            $table->string('description');
+            $table->longText('description');
             $table->string('photo')->nullable();
             $table->timestamps();
             $table->softDeletes();
