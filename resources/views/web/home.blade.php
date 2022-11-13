@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-@section('title', 'Desa Keramas')
+@section('title', 'Home')
 @section('content')
 <div>
     <!-- visual/banner of the page -->
