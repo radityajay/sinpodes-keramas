@@ -22,11 +22,11 @@ class AnnouncementController extends Controller
                 ->editColumn('date', function ($data) {
                     return date('d M Y', strtotime($data->date));
                 })
-                ->editColumn('description', function ($data) {
-                    // $answer = '';
-                    $answer = compact($data->description);
-                    return $answer;
-                })
+                // ->editColumn('description', function ($data) {
+                //     // $answer = '';
+                //     $answer = compact($data->description);
+                //     return $answer;
+                // })
                 ->addColumn('status', function ($data) {
                     $status = '';
                     if($data->is_active != false){

@@ -1,9 +1,9 @@
 @extends('admin.partial.app')
 
 @if(!isset($data))
-@section('title', 'Tambah Pengumuman')
+@section('title', 'Tambah Peraturan Desa')
 @else
-@section('title', 'Edit Pengumuman')
+@section('title', 'Edit Peraturan Desa')
 @endif
 
 @section('content')
@@ -15,7 +15,7 @@
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('announcement.index') }}">Pengumuman</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('announcement.index') }}">Peraturan Desa</a></li>
                     @if(!isset($data))
                     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
                     @else
@@ -33,7 +33,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form id="submits" action="{{ !isset($data) ? route('news.store') : route('news.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                    <form id="submits" action="{{ !isset($data) ? route('village-rules.store') : route('village-rules.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @isset($data)
                         @method('PUT')
@@ -51,7 +51,7 @@
                                         @endforeach
                                     @endif
                             </div>
-                            <div class="col-md-6 col-12 mb-3">
+                            {{-- <div class="col-md-6 col-12 mb-3">
                                 <label>Sub Judul</label>
                                 <input type="text" class="form-control"  value="{{ isset($data) ? $data->sub_title : old('sub_title') }}" placeholder="Sub Judul" name="sub_title" />
                                 @if ($errors->any())
@@ -61,14 +61,14 @@
                                         @endif
                                     @endforeach
                                 @endif
-                            </div>
-                            <div class="mb-3 mt-3">
-                                <label>Foto</label>
-                                <input type="file" name="photo" class="dropify" data-height="180" data-max-file-size="3M" data-allowed-file-extensions="jpg png gif jpeg" {!!isset($data->photo) ? "data-default-file='{$data->photo_url}'" : ''!!} accept="image/*"/>
+                            </div> --}}
+                            <div class="col-md-6 col-12 mb-3">
+                                <label>File</label>
+                                <input type="file" name="file" class="dropify" data-height="180" data-allowed-file-extensions="pdf" {!!isset($data->file) ? "data-default-file='{$data->file_url}'" : ''!!} accept="pdf"/>
                                 @if ($errors->any())
                                     @foreach ($errors->getMessages() as $key => $val)
-                                        @if($key == "photo")
-                                            <div style="color: red;"> {{ $errors->first('photo') }}</div>
+                                        @if($key == "file")
+                                            <div style="color: red;"> {{ $errors->first('file') }}</div>
                                         @endif
                                     @endforeach
                                 @endif
@@ -89,7 +89,7 @@
                         <br>
                         <div class="col-md-12">
                             <div class="form-group" style="float: right">
-                                <a href="{{ route('announcement.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
+                                <a href="{{ route('village-rules.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
                                 <button type="submit" class="btn btn-keramas mr-2"><i class="ri-save-line"></i> Simpan</button>
                             </div>
                         </div>

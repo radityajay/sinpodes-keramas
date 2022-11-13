@@ -39,7 +39,7 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li class="{{ (request()->is('admin/announcement/*')) ? 'mm-active' : '' }}"><a href="{{ route('announcement.index') }}">Pengumuman</a></li>
-                        {{-- <li class="{{ (request()->is('admin/announcement/*')) ? 'mm-active' : '' }}"><a href="{{ route('announcement.index') }}">Berita</a></li> --}}
+                        <li class="{{ (request()->is('admin/news/*')) ? 'mm-active' : '' }}"><a href="{{ route('news.index') }}">Berita</a></li>
                     </ul>
                 </li>
 
@@ -49,8 +49,8 @@
                         <span>Peraturan</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li class="{{ (request()->is('terms-conditions/*')) ? 'mm-active' : '' }}"><a href="{{ url('terms-conditions') }}">Desa</a></li>
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Kabupaten</a></li>
+                        <li class="{{ (request()->is('admin/village-rules/*')) ? 'mm-active' : '' }}"><a href="{{ route('village-rules.index') }}">Desa</a></li>
+                        <li class="{{ (request()->is('admin/region-rules/*')) ? 'mm-active' : '' }}"><a href="{{ route('region-rules.index') }}">Kabupaten</a></li>
                     </ul>
                 </li>
 

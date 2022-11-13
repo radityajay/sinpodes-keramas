@@ -1,6 +1,6 @@
 @extends('admin.partial.app')
 
-@section('title', 'Pengumuman')
+@section('title', 'Peraturan Kabupaten')
 
 @section('content')
 <div class="container-fluid">
@@ -11,14 +11,14 @@
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Pengumuman</li>
+                    <li class="breadcrumb-item active" aria-current="page">Peraturan Kabupaten</li>
                 </ol>
             </nav>
         </div>
         <div class="col-md-2">
-            <a href="{{ route('announcement.create') }}" class="btn btn-keramas btn-icon-text mb-2 mb-md-0">
+            <a href="{{ route('region-rules.create') }}" class="btn btn-keramas btn-icon-text mb-2 mb-md-0">
                 <i class="fas fa-plus"></i>
-                Tambah Pengumuman
+                Tambah Peraturan Kabupaten
             </a>
         </div>
     </div>
@@ -34,8 +34,7 @@
                                 <th width="5%">No</th>
                                 <th>Tanggal</th>
                                 <th>Judul</th>
-                                <th>Sub Judul</th>
-                                <th>Status</th>
+                                <th>Files</th>
                                 <th width="10%">Aksi</th>
                             </tr>
                         </thead>
@@ -73,7 +72,7 @@
     $(document).ready(function() {
         let $dtSearch = $('#formSearch');
         dataTable = $("#datatable").DataTable({
-            ajax: "{{ route('announcement.index') }}?type=datatable",
+            ajax: "{{ route('region-rules.index') }}?type=datatable",
             processing: true,
             autoWidth: false,
             serverSide: true,
@@ -97,12 +96,8 @@
                     name: "title"
                 },
                 {
-                    data: "sub_title",
-                    name: "sub_title"
-                },
-                {
-                    data: "status",
-                    name: "status"
+                    data: "file",
+                    name: "file"
                 },
                 {
                     data: "action",

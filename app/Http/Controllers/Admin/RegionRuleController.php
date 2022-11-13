@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\News;
+use App\RegionRule;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class RegionRuleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,31 +17,26 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         if ($request->type == 'datatable') {
-            $data = News::orderBy('created_at', 'desc');
+            $data = RegionRule::orderBy('created_at', 'desc');
             return datatables()->of($data)
                 ->editColumn('date', function ($data) {
                     return date('d M Y', strtotime($data->date));
                 })
-                // ->editColumn('description', function ($data) {
-                //     // $answer = '';
-                //     $answer = compact($data->description);
-                //     return $answer;
-                // })
                 ->addColumn('action', function ($data) {
                     $action = '';
 
-                    // $action .= '<a href="' . route('village-apparature.show', $data->id) . '" class="me-3 text-warning" data-bs-toggle="tooltip" data-placement="top" title="Detail"><i class="mdi mdi-file-document font-size-18"></i></a>';
+                    // $action .= '<a href="' . route('region-apparature.show', $data->id) . '" class="me-3 text-warning" data-bs-toggle="tooltip" data-placement="top" title="Detail"><i class="mdi mdi-file-document font-size-18"></i></a>';
 
-                    $action .= '<a href="' . route('news.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
+                    $action .= '<a href="' . route('region-rules.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
 
-                    $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="news/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
+                    $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="region-rules/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
 
                     return $action;
                 })
                 ->rawColumns(['action', 'status'])
                 ->make(true);
         } else {
-            return view('admin.news.index');
+            return view('admin.region-rules.index');
         }
     }
 
@@ -52,7 +47,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.form');
+        return view('admin.region-rules.form');
     }
 
     /**
@@ -67,34 +62,33 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'photo' => 'required',
+            'file' => 'required',
         ], [
             'required' => ':attribute tidak boleh kosong!',
             'unique' => ':attribute sudah digunakan!'
         ], [
             'title' => 'judul',
             'description' => 'deskripsi',
-            'photo' => 'foto',
+            'file' => 'files',
         ]);
 
         try {
-            if (!empty($request->file('photo'))) {
-                $file = $request->file('photo');
+            if (!empty($request->file('file'))) {
+                $file = $request->file('file');
 
-                $photo = time() . "-" . $file->getClientOriginalName();
+                $file = time() . "-" . $file->getClientOriginalName();
 
-                $path = $request->file('photo')->storeAs('public/upload/news/', $photo);
+                $path = $request->file('file')->storeAs('public/upload/rules/', $file);
             }
-            News::create([
+            RegionRule::create([
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
                 'description' => $request->description,
                 'date' => Carbon::now(),
-                'photo' => isset($photo) ? $photo : null,
+                'file' => isset($file) ? $file : null,
             ]);
 
-            return redirect()->route('news.index')
-                ->with('success', 'Berita berhasil dibuat');
+            return redirect()->route('region-rules.index')
+                ->with('success', 'Peraturan Kabupaten berhasil dibuat');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
@@ -127,12 +121,12 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $data = News::find($id);
+        $data = RegionRule::find($id);
         if ($data == null) {
             abort(404);
         }
 
-        return view('admin.news.form', [
+        return view('admin.region-rules.form', [
             'data' => $data,
         ]);
     }
@@ -146,7 +140,7 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oldPhoto = News::where('id', $id)->orderBy('created_at', 'desc')->first();
+        $oldFiles = RegionRule::where('id', $id)->orderBy('created_at', 'desc')->first();
 
         $request->validate([
             'title' => 'required',
@@ -160,26 +154,25 @@ class NewsController extends Controller
         ]);
 
         try {
-            if ($request->file('photo')) {
-                $file = $request->file('photo');
+            if ($request->file('file')) {
+                $file = $request->file('file');
 
-                $photo = time() . "-" . $file->getClientOriginalName();
+                $file = time() . "-" . $file->getClientOriginalName();
 
-                $path = $request->file('photo')->storeAs('public/upload/news/', $photo);
+                $path = $request->file('file')->storeAs('public/upload/rules/', $file);
             } else {
-                $photo = $oldPhoto ? $oldPhoto->photo : '-';
+                $file = $oldFiles ? $oldFiles->file : '-';
             }
             $formData = ([
                 'title' => $request->title,
-                'sub_title' => $request->sub_title,
                 'description' => $request->description,
-                'photo' => isset($photo) ? $photo : null,
+                'file' => isset($file) ? $file : null,
             ]);
 
-            News::find($id)->update($formData);
+            RegionRule::find($id)->update($formData);
 
-            return redirect()->route('news.index')
-                ->with('success', 'Berita berhasil diubah');
+            return redirect()->route('region-rules.index')
+                ->with('success', 'Peraturan Kabupaten berhasil diubah');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
@@ -201,9 +194,9 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        News::destroy($id);
+        RegionRule::destroy($id);
         return response()->json([
-            "message" => "Berita berhasil dihapus."
+            "message" => "Peraturan Kabupaten berhasil dihapus."
         ]);
     }
 }

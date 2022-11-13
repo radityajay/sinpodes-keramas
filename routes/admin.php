@@ -15,4 +15,7 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::resource('linmas-apparature', 'Admin\LinmasController');
     Route::resource('kt-apparature', 'Admin\KarangTarunaController');
     Route::resource('announcement', 'Admin\AnnouncementController');
+    Route::resource('news', 'Admin\NewsController');
+    Route::resource('village-rules', 'Admin\VillageRuleController');
+    Route::resource('region-rules', 'Admin\RegionRuleController');
 });
