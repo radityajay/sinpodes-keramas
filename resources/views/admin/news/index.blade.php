@@ -36,7 +36,6 @@
                                 <th>Judul</th>
                                 <th>Sub Judul</th>
                                 <th>Status</th>
-                                <th>Deskripsi</th>
                                 <th width="10%">Aksi</th>
                             </tr>
                         </thead>
@@ -104,10 +103,6 @@
                 {
                     data: "status",
                     name: "status"
-                },
-                {
-                    data: "description",
-                    name: "description"
                 },
                 {
                     data: "action",

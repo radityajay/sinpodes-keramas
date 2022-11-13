@@ -57,4 +57,8 @@ a {
 .btn:hover {
     color: #d9d9d9 !important;
     text-decoration: none;
-  }
+}
+
+.mm-active .active i {
+    color: #027e06 !important;
+}

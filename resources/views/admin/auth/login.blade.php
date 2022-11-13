@@ -39,7 +39,7 @@
                         <div class="card mb-0">
                             <div class="card-body">
                                 <a href="javascript:void(0);" class="brand-logo">
-                                    <h2 class="brand-text text-primary ml-1">Sinpodes</h2>
+                                    <h2 class="brand-text text-primary ml-1" style="color: #027e06 !important">Sinpodes</h2>
                                 </a>
 
                                 <h4 class="card-title mb-1">Selamat datang di Sinpodes 👋</h4>
@@ -76,7 +76,7 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-block w-100" tabindex="4">Login</button>
+                                    <button type="submit" class="btn btn-primary btn-block w-100" style="background-color: #027e06 !important" tabindex="4">Login</button>
                                 </form>
 
                                 {{-- <div class="divider my-2 text-center">
