@@ -29,15 +29,15 @@
                                             data-title="Home"> Pemerintahan </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="perangkat-desa.html"> Perangkat Desa</a>
+                                                <a href="{{ route('perangkatdesa.index')}}"> Perangkat Desa</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="pkk.html"> PKK</a>
+                                                <a href="{{ route('pkk.index')}}"> PKK</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
                                                 <a href="{{ route('linmas.index')}}"> Linmas</a>
                                             </li>
-                                            <li><a href="karang-taruna.html"> Karang Taruna </a></li>
+                                            <li><a href="{{ route('karangtaruna.index')}}"> Karang Taruna </a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown" data-animation="fadeIn">
@@ -45,7 +45,7 @@
                                             data-title="Home"> Artikel </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="pengumuman.html"> Pengumuman</a>
+                                                <a href="{{ route('announ.index')}}"> Pengumuman</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
                                                 <a href="berita.html"> Berita</a>

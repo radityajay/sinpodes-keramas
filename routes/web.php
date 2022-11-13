@@ -13,3 +13,7 @@
 
 Route::resource('/', 'Web\HomeController');
 Route::resource('linmas', 'Web\LinmasController');
+Route::resource('pkk', 'Web\PkkController');
+Route::resource('karangtaruna', 'Web\KtController');
+Route::resource('perangkatdesa', 'Web\PeradesController');
+Route::resource('announ', 'Web\AnnouncementController');
