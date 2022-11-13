@@ -12,3 +12,4 @@
 */
 
 Route::resource('/', 'Web\HomeController');
+Route::resource('linmas', 'Web\LinmasController');

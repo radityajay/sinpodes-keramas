@@ -35,7 +35,7 @@
                                                 <a href="pkk.html"> PKK</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="linmas.html"> Linmas</a>
+                                                <a href="{{ route('linmas.index')}}"> Linmas</a>
                                             </li>
                                             <li><a href="karang-taruna.html"> Karang Taruna </a></li>
                                         </ul>

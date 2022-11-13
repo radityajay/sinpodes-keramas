@@ -839,6 +839,12 @@ img {
 	height: auto;
 }
 
+.img-foto{
+    max-width: 100% !important;
+    height: 100vh !important;
+    object-fit: cover !important;
+}
+
 a {
 	color: #5645ff;
 	text-decoration: none;
