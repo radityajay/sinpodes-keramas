@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\RoleUser;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -18,7 +19,7 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin')->except('logout');
+        $this->middleware('guest')->except('logout', 'profile');
     }
 
     /**
@@ -34,39 +35,47 @@ class LoginController extends Controller
         } else {
             return view('admin/auth/login');
         }
+
+        // return view('admin/auth/login');
     }
 
     public function login(Request $request)
     {
-        $this->validate($request, [
-            'username' => 'required',
-            'password' => 'required'
-        ], [
-            'required' => ':attribute tidak boleh kosong!'
-        ]);
+        $user = RoleUser::where('username', $request->username)
+            ->where('is_active', true)
+            ->first();
 
-        if (User::where('username', $request->username)->exists()) {
-            if (Auth::guard('admin')->attempt([
-                'username' => $request->username,
-                'password' => $request->password
-            ], $request->get('remember'))) {
-                return redirect()->route('admin.dashboard');
+        if (is_null($user)) {
+            return redirect()
+                ->back()
+                ->with('error', trans('auth.not_found'));
+        } else {
+            if ($user->is_active == 1) {
+                if (Auth::attempt([
+                    'username' => $request->username,
+                    'password' => $request->password
+                ])) {
+                    return redirect()->route('admin.dashboard');
+                } else {
+                    return redirect()
+                        ->back()
+                        ->with('error', trans('auth.not_found'));
+                }
             } else {
                 return redirect()
                     ->back()
-                    ->with('error', 'Kata sandi salah');
+                    ->with('error', trans('auth.not_found'));
             }
-        } else {
-            return redirect()
-                ->back()
-                ->with('error', 'Username tidak ditemukan');
         }
+
+        return back()->withInput($request->only('username', 'remember'));
     }
 
     public function logout()
     {
-        if (Auth::guard('admin')->user()) {
-            Auth::guard('admin')->logout();
+        if (auth()->check()) {
+            auth()->logout();
+            // request()->session()->forget('pos_session_id');
             return redirect()->route('admin.login');
         }
     }

@@ -5,9 +5,9 @@
 // })->name('login');
 Route::get('login', 'Admin\LoginController@index')->name('admin.login');
 Route::post('/login', 'Admin\LoginController@login')->name('admin.loginsend');
+Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
 
-Route::group(['middleware' => 'auth:admin'], function () {
-    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('admin.dashboard');
     Route::resource('profile', 'Admin\ProfileController');
     Route::resource('village-apparature', 'Admin\PerangkatDesaController');
@@ -18,4 +18,6 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::resource('news', 'Admin\NewsController');
     Route::resource('village-rules', 'Admin\VillageRuleController');
     Route::resource('region-rules', 'Admin\RegionRuleController');
+    Route::resource('user','Admin\RoleUserController');
+    Route::resource('role','Admin\RoleController');
 });

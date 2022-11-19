@@ -27,13 +27,7 @@
             <div class="dropdown d-inline-block user-dropdown">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    @php
-                        $avatar_image = \Auth::guard('admin')->user()->photo != null ? \Auth::guard('admin')->user()->photo_url : "/assets/images/user.png";
-                        $user = \Auth::guard('admin')->user();
-                    @endphp
-                    <img class="rounded-circle header-profile-user" src="{{ $avatar_image }}"
-                        alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1">{{ $user->username }}</span>
+                    <span class="d-none d-xl-inline-block ms-1">{{ auth()->user()->name}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">

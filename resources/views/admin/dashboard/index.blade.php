@@ -91,6 +91,8 @@
             <!-- end row -->
         </div>
     </div>
+
+    {{ auth()->user()->role_id }}
     <!-- end row -->
 </div>
 @endsection
