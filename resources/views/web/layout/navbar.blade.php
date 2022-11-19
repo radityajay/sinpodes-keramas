@@ -13,31 +13,31 @@
                                 data-target="#mega-menu">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-                            <a class="navbar-brand mr-auto m-sm-auto" href="index.html"> <img src="/assets/web/img/logoo.png"
+                            <a class="navbar-brand mr-auto m-sm-auto" href="{{ url('/')}}"> <img src="/assets/web/img/logoo.png"
                                     alt="keramas" style="height: 40px !important"> <img src="/assets/web/img/logoo.png"
                                     alt="keramas" style="height: 40px !important"> </a>
                             <div class="collapse navbar-collapse flex-row-reverse" id="mega-menu">
                                 <ul class="nav navbar-nav">
                                     <li class="dropdown" data-animation="fadeIn">
-                                        <a href="index.html" data-title="Home"> Home </a>
+                                        <a href="{{ url('/')}}" data-title="Home"> Home </a>
                                     </li>
                                     <li class="dropdown" data-animation="fadeIn">
-                                        <a href="about.html" data-title="Profil Desa"> Profil Desa </a>
+                                        <a href="{{ route('profildesa.index')}}" data-title="Profil Desa"> Profil Desa </a>
                                     </li>
                                     <li class="dropdown" data-animation="fadeIn">
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="index.html"
                                             data-title="Home"> Pemerintahan </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="perangkat-desa.html"> Perangkat Desa</a>
+                                                <a href="{{ route('perangkatdesa.index')}}"> Perangkat Desa</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="pkk.html"> PKK</a>
+                                                <a href="{{ route('pkk.index')}}"> PKK</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
                                                 <a href="{{ route('linmas.index')}}"> Linmas</a>
                                             </li>
-                                            <li><a href="karang-taruna.html"> Karang Taruna </a></li>
+                                            <li><a href="{{ route('karangtaruna.index')}}"> Karang Taruna </a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown" data-animation="fadeIn">
@@ -45,10 +45,10 @@
                                             data-title="Home"> Artikel </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="pengumuman.html"> Pengumuman</a>
+                                                <a href="{{ route('announ.index')}}"> Pengumuman</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="berita.html"> Berita</a>
+                                                <a href="{{ route('berita.index')}}"> Berita</a>
                                             </li>
                                         </ul>
                                     </li>

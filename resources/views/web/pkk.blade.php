@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-@section('title', 'Linmas')
+@section('title', 'PKK')
 @section('content')
 <div>
     <!-- visual/banner of the page -->
@@ -7,7 +7,7 @@
         <div class="visual-inner visual-banner dark-overlay parallax" data-stellar-background-ratio="0.55">
             <div class="container">
                 <div class="visual-text-large text-left visual-center">
-                    <h1 class="visual-title visual-sub-title">Perlindungan Masyarakat</h1>
+                    <h1 class="visual-title visual-sub-title">Pemberdayaan dan Kesejahteraan Keluarga</h1>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit porro laudantium sequi. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     <div class="breadcrumb-block">
                         <ol class="breadcrumb">

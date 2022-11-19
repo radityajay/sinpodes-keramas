@@ -841,7 +841,13 @@ img {
 
 .img-foto{
     max-width: 100% !important;
-    height: 100vh !important;
+    height: 80vh !important;
+    object-fit: cover !important;
+}
+
+.img-tl{
+    max-width: 100% !important;
+    height: 50vh !important;
     object-fit: cover !important;
 }
 
@@ -6701,6 +6707,8 @@ input:focus:-ms-input-placeholder,textarea:focus:-ms-input-placeholder {
 
 .post-text-block {
 	position: relative;
+	max-height: 300px !important;
+    min-height: 280px !important;
 	padding: 1.25rem;
 	-webkit-box-shadow: 0 .1429rem .6429rem .07143rem rgba(0, 0, 0, .1);
 	box-shadow: 0 .1429rem .6429rem .07143rem rgba(0, 0, 0, .1);
