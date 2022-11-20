@@ -22,17 +22,26 @@ class NewsController extends Controller
                 ->editColumn('date', function ($data) {
                     return date('d M Y', strtotime($data->date));
                 })
-                // ->editColumn('description', function ($data) {
-                //     // $answer = '';
-                //     $answer = compact($data->description);
-                //     return $answer;
-                // })
+                ->addColumn('status', function ($data) {
+                    $status = '';
+                    if($data->status == 'PENDING'){
+                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #9a9a9a;color: #fff;border: 2px solid #9a9a9a;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-success">MENUNGGU</span> </div>';
+                    } elseif($data->status == 'ACCEPTED'){
+                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #f78c22;color: #fff;border: 2px solid #f78c22;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-danger">TERIMA</span> </div>';
+                    }
+                    elseif($data->status == 'REJECT'){
+                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #ff3d60;color: #fff;border: 2px solid #ff3d60;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-danger">TOLAK</span> </div>';
+                    }
+                    return $status;
+                })
                 ->addColumn('action', function ($data) {
                     $action = '';
 
                     // $action .= '<a href="' . route('village-apparature.show', $data->id) . '" class="me-3 text-warning" data-bs-toggle="tooltip" data-placement="top" title="Detail"><i class="mdi mdi-file-document font-size-18"></i></a>';
 
                     $action .= '<a href="' . route('news.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
+
+                    $action .= '<a href="' . route('news.show', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Show"><i class="mdi mdi-eye font-size-18"></i></a>';
 
                     $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="news/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
 
@@ -90,6 +99,7 @@ class NewsController extends Controller
                 'sub_title' => $request->sub_title,
                 'description' => $request->description,
                 'date' => Carbon::now(),
+                'status' => 'PENDING',
                 'photo' => isset($photo) ? $photo : null,
             ]);
 
@@ -116,7 +126,11 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = News::find($id);
+        // dd($data);
+        return view('admin.news.detail', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -173,6 +187,7 @@ class NewsController extends Controller
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
                 'description' => $request->description,
+                'status' => 'PENDING',
                 'photo' => isset($photo) ? $photo : null,
             ]);
 
@@ -205,5 +220,51 @@ class NewsController extends Controller
         return response()->json([
             "message" => "Berita berhasil dihapus."
         ]);
+    }
+
+    public function accepted($id){
+        try {
+            $formData = ([
+                'status' => 'ACCEPTED',
+            ]);
+
+            News::find($id)->update($formData);
+
+            return redirect()->route('news.index')
+                ->with('success', 'Berita berhasil diterima');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        } catch (\Throwable $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        }
+    }
+
+    public function reject($id){
+        try {
+            $formData = ([
+                'status' => 'REJECT',
+            ]);
+
+            News::find($id)->update($formData);
+
+            return redirect()->route('news.index')
+                ->with('success', 'Berita berhasil diterima');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        } catch (\Throwable $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        }
     }
 }

@@ -29,10 +29,13 @@ class AnnouncementController extends Controller
                 // })
                 ->addColumn('status', function ($data) {
                     $status = '';
-                    if($data->is_active != false){
-                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #027e06;color: #fff;border: 2px solid #027e06;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-success">Aktif</span> </div>';
-                    }else{
-                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #ff3d60;color: #fff;border: 2px solid #ff3d60;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-danger">Tidak Aktif</span> </div>';
+                    if($data->status == 'PENDING'){
+                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #9a9a9a;color: #fff;border: 2px solid #9a9a9a;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-success">MENUNGGU</span> </div>';
+                    } elseif($data->status == 'ACCEPTED'){
+                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #f78c22;color: #fff;border: 2px solid #f78c22;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-danger">TERIMA</span> </div>';
+                    }
+                    elseif($data->status == 'REJECT'){
+                        $status = '<div> <span style="padding:5px;border-radius:10px;background-color: #ff3d60;color: #fff;border: 2px solid #ff3d60;box-shadow: 0px 3px 5px 0px rgb(0 0 0 / 8%);" class="badge status-danger">TOLAK</span> </div>';
                     }
                     return $status;
                 })
@@ -42,6 +45,8 @@ class AnnouncementController extends Controller
                     // $action .= '<a href="' . route('village-apparature.show', $data->id) . '" class="me-3 text-warning" data-bs-toggle="tooltip" data-placement="top" title="Detail"><i class="mdi mdi-file-document font-size-18"></i></a>';
 
                     $action .= '<a href="' . route('announcement.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
+
+                    $action .= '<a href="' . route('announcement.show', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Show"><i class="mdi mdi-eye font-size-18"></i></a>';
 
                     $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="announcement/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
 
@@ -75,7 +80,6 @@ class AnnouncementController extends Controller
         // return $request->all();
         $request->validate([
             'title' => 'required',
-            'is_active' => 'required',
             'description' => 'required',
             'photo' => 'required',
         ], [
@@ -83,7 +87,6 @@ class AnnouncementController extends Controller
             'unique' => ':attribute sudah digunakan!'
         ], [
             'title' => 'judul',
-            'is_active' => 'pilih salah satu',
             'description' => 'deskripsi',
             'photo' => 'foto',
         ]);
@@ -100,7 +103,7 @@ class AnnouncementController extends Controller
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
                 'description' => $request->description,
-                'is_active' => $request->is_active == 1 ? true : false,
+                'status' => 'PENDING',
                 'date' => Carbon::now(),
                 'photo' => isset($photo) ? $photo : null,
             ]);
@@ -128,7 +131,11 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Announcement::find($id);
+        // dd($data);
+        return view('admin.announcement.detail', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -162,14 +169,12 @@ class AnnouncementController extends Controller
 
         $request->validate([
             'title' => 'required',
-            'is_active' => 'required',
             'description' => 'required'
         ], [
             'required' => ':attribute tidak boleh kosong!',
             'unique' => ':attribute sudah digunakan!'
         ], [
             'title' => 'judul',
-            'is_active' => 'pilih salah satu',
             'description' => 'deskripsi'
         ]);
 
@@ -187,7 +192,7 @@ class AnnouncementController extends Controller
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
                 'description' => $request->description,
-                'is_active' => $request->is_active == 1 ? true : false,
+                'status' => 'PENDING',
                 'photo' => isset($photo) ? $photo : null,
             ]);
 
@@ -220,5 +225,51 @@ class AnnouncementController extends Controller
         return response()->json([
             "message" => "Pengumuman berhasil dihapus."
         ]);
+    }
+
+    public function accepted($id){
+        try {
+            $formData = ([
+                'status' => 'ACCEPTED',
+            ]);
+
+            Announcement::find($id)->update($formData);
+
+            return redirect()->route('announcement.index')
+                ->with('success', 'Pengumuman berhasil diterima');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        } catch (\Throwable $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        }
+    }
+
+    public function reject($id){
+        try {
+            $formData = ([
+                'status' => 'REJECT',
+            ]);
+
+            Announcement::find($id)->update($formData);
+
+            return redirect()->route('announcement.index')
+                ->with('success', 'Pengumuman berhasil diterima');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        } catch (\Throwable $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        }
     }
 }

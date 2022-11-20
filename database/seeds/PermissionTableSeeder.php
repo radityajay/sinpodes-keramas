@@ -62,6 +62,7 @@ class PermissionTableSeeder extends Seeder
             ['id' => 'annoncement.create', 'name' => 'Buat Pengumuman', 'group' => 'ANNOUNCEMENT'],
             ['id' => 'annoncement.edit', 'name' => 'Edit Pengumuman', 'group' => 'ANNOUNCEMENT'],
             ['id' => 'annoncement.delete', 'name' => 'Hapus Pengumuman', 'group' => 'ANNOUNCEMENT'],
+            ['id' => 'annoncement.publish', 'name' => 'Publish Pengumuman', 'group' => 'ANNOUNCEMENT'],
         ]);
 
         Permission::insert([
@@ -69,6 +70,7 @@ class PermissionTableSeeder extends Seeder
             ['id' => 'news.create', 'name' => 'Buat Berita', 'group' => 'NEWS'],
             ['id' => 'news.edit', 'name' => 'Edit Berita', 'group' => 'NEWS'],
             ['id' => 'news.delete', 'name' => 'Hapus Berita', 'group' => 'NEWS'],
+            ['id' => 'news.publish', 'name' => 'Publish Berita', 'group' => 'NEWS'],
         ]);
 
         Permission::insert([

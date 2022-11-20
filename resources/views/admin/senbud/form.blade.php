@@ -1,9 +1,9 @@
 @extends('admin.partial.app')
 
 @if(!isset($data))
-@section('title', 'Tambah Pengumuman')
+@section('title', 'Tambah Senbud')
 @else
-@section('title', 'Edit Pengumuman')
+@section('title', 'Edit Senbud')
 @endif
 
 @section('content')
@@ -15,7 +15,7 @@
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('announcement.index') }}">Pengumuman</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('senbud.index') }}">Senbud</a></li>
                     @if(!isset($data))
                     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
                     @else
@@ -33,45 +33,31 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form id="submits" action="{{ !isset($data) ? route('announcement.store') : route('announcement.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                    <form id="submits" action="{{ !isset($data) ? route('senbud.store') : route('senbud.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @isset($data)
                         @method('PUT')
                         @endisset
                         
                         <div class="row">
-                            <div class="col-md-6 col-12 mb-3">
-                                    <label>Judul</label>
-                                    <input type="text" class="form-control"  value="{{ isset($data) ? $data->title : old('title') }}" placeholder="Judul" name="title" />
+                            <div class="mb-3">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control"  value="{{ isset($data) ? $data->name : old('name') }}" placeholder="Name" name="name" />
                                     @if ($errors->any())
                                         @foreach ($errors->getMessages() as $key => $val)
-                                            @if($key == "title")
-                                                <div style="color: red;"> {{ $errors->first('title') }}</div>
+                                            @if($key == "name")
+                                                <div style="color: red;"> {{ $errors->first('name') }}</div>
                                             @endif
                                         @endforeach
                                     @endif
                             </div>
-                            <div class="col-md-6 col-12 mb-3">
+                            {{-- <div class="col-md-6 col-12 mb-3">
                                 <label>Sub Judul</label>
                                 <input type="text" class="form-control"  value="{{ isset($data) ? $data->sub_title : old('sub_title') }}" placeholder="Sub Judul" name="sub_title" />
                                 @if ($errors->any())
                                     @foreach ($errors->getMessages() as $key => $val)
                                         @if($key == "sub_title")
                                             <div style="color: red;"> {{ $errors->first('sub_title') }}</div>
-                                        @endif
-                                    @endforeach
-                                @endif
-                            </div>
-                            {{-- <div class="col-md-6 col-12 mb-3">
-                                <label>Aktif</label>
-                                <select class="form-select" aria-label="Default select example" name="is_active">
-                                <option {{isset($data) ? $data->is_active == true ? 'selected' : '' : ''}} value="1">Aktif</option>
-                                <option {{isset($data) ? $data->is_active == false ? 'selected' : '' : ''}} value="0">Tidak Aktif</option>
-                                </select>
-                                @if ($errors->any())
-                                    @foreach ($errors->getMessages() as $key => $val)
-                                        @if($key == "is_active")
-                                            <div style="color: red;"> {{ $errors->first('is_active') }}</div>
                                         @endif
                                     @endforeach
                                 @endif
@@ -103,7 +89,7 @@
                         <br>
                         <div class="col-md-12">
                             <div class="form-group" style="float: right">
-                                <a href="{{ route('announcement.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
+                                <a href="{{ route('senbud.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
                                 <button type="submit" class="btn btn-keramas mr-2"><i class="ri-save-line"></i> Simpan</button>
                             </div>
                         </div>

@@ -88,28 +88,28 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         @can(['pariwisata.index'])
-                        <li class="{{ (request()->is('terms-conditions/*')) ? 'mm-active' : '' }}"><a href="{{ url('terms-conditions') }}">Pariwisata</a></li>
+                        <li class="{{ (request()->is('admin/pariwisata/*')) ? 'mm-active' : '' }}"><a href="{{ route('pariwisata.index') }}">Pariwisata</a></li>
                         @endcan
                         @can(['alam.index'])
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Alam</a></li>
+                        <li class="{{ (request()->is('admin/alam/*')) ? 'mm-active' : '' }}"><a href="{{ route('alam.index') }}">Alam</a></li>
                         @endcan
                         @can(['senbud.index'])
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Seni dan Budaya</a></li>
+                        <li class="{{ (request()->is('admin/senbud/*')) ? 'mm-active' : '' }}"><a href="{{ route('senbud.index') }}">Seni dan Budaya</a></li>
                         @endcan
                         @can(['kuliner.index'])
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Kuliner</a></li>
+                        <li class="{{ (request()->is('admin/kuliner/*')) ? 'mm-active' : '' }}"><a href="{{ route('kuliner.index') }}">Kuliner</a></li>
                         @endcan
                         @can(['perkebunan.index'])
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Perkebunan</a></li>
+                        <li class="{{ (request()->is('admin/perkebunan/*')) ? 'mm-active' : '' }}"><a href="{{ route('perkebunan.index') }}">Perkebunan</a></li>
                         @endcan
                         @can(['perikanan.index'])
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Perikanan</a></li>
+                        <li class="{{ (request()->is('admin/perikanan/*')) ? 'mm-active' : '' }}"><a href="{{ route('perikanan.index') }}">Perikanan</a></li>
                         @endcan
                         @can(['kerajinan.index'])
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Kerajinan</a></li>
+                        <li class="{{ (request()->is('admin/kerajinan/*')) ? 'mm-active' : '' }}"><a href="{{ route('kerajinan.index') }}">Kerajinan</a></li>
                         @endcan
                         @can(['mikro.index'])
-                        <li class="{{ (request()->is('privacy-policy/*')) ? 'mm-active' : '' }}"><a href="{{ url('privacy-policy') }}">Usaha Mikro</a></li>
+                        <li class="{{ (request()->is('admin/usaha-mikro/*')) ? 'mm-active' : '' }}"><a href="{{ route('usaha-mikro.index') }}">Usaha Mikro</a></li>
                         @endcan
                     </ul>
                 </li>

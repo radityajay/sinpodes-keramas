@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Uuid;
 
-class News extends Model
+class Pariwisata extends Model
 {
     use SoftDeletes;
 
     public $incrementing = false;
 
-    protected $table = 'news';
+    protected $table = 'pariwisatas';
 
     protected $keyType = 'string';
 
@@ -21,12 +21,10 @@ class News extends Model
 
     protected $fillable = [
         'id',
-        'title',
-        'sub_title',
+        'name',
         'date',
         'description',
-        'photo',
-        'status'
+        'photo'
     ];
 
     protected static function boot()
@@ -41,6 +39,6 @@ class News extends Model
 
     public function getPhotoUrlAttribute()
     {
-        return Storage::url('public/upload/news/' . $this->photo);
+        return Storage::url('public/upload/pariwisata/' . $this->photo);
     }
 }
