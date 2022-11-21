@@ -57,28 +57,28 @@
                                             data-title="Home"> Potensi Desa </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="wisata.html"> Pariwisata</a>
+                                                <a href="{{ route('potensipariwisata.index')}}"> Pariwisata</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="alam.html"> Alam</a>
+                                                <a href="{{ route('potensialam.index')}}"> Alam</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="senbud.html"> Seni Budaya</a>
+                                                <a href="{{ route('potensisenbud.index')}}"> Seni Budaya</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="kuliner.html"> Kuliner</a>
+                                                <a href="{{ route('potensikuliner.index')}}"> Kuliner</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="perkebunan.html"> Perkebunan</a>
+                                                <a href="{{ route('potensiperkebunan.index')}}"> Perkebunan</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="perikanan.html"> Perikanan</a>
+                                                <a href="{{ route('potensiperikanan.index')}}"> Perikanan</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="kerajinan.html"> Kerajinan</a>
+                                                <a href="{{ route('potensikerajinan.index')}}"> Kerajinan</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="usaha-mikro.html"> Usaha Mikro</a>
+                                                <a href="{{ route('potensiusahamikro.index')}}"> Usaha Mikro</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -93,14 +93,14 @@
                                             data-title="Home"> Produk Hukum </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li><a href="{{ route('aturandesa.index')}}"> Peraturan Desa </a></li>
-                                            <li><a href="perkab.html"> Peraturan Kabupaten </a></li>
+                                            <li><a href="{{ route('aturankabupaten.index')}}"> Peraturan Kabupaten </a></li>
                                         </ul>
                                     </li>
                                     <li>
                                         <a href="contact.html"> APBDesa </a>
                                     </li>
                                     <li>
-                                        <a href="pengaduan.html"> Pengaduan Masyarakat </a>
+                                        <a href="{{ route('pengaduan.index')}}"> Pengaduan Masyarakat </a>
                                     </li>
                                     <!-- <li class="dropdown cart-list margin-0-sm">
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"><span class="hidden-lg-up"> Shopping Cart </span><i class="custom-icon-cart m-marker"></i></a>

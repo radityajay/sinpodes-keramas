@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-@section('title', 'Peraturan Desa')
+@section('title', 'Peraturan Kabupaten')
 @section('content')
 
 <div>
@@ -8,7 +8,7 @@
         <div class="visual-inner blog-default-banner dark-overlay parallax" data-stellar-background-ratio="0.55">
             <div class="container">
                 <div class="visual-text-large text-left visual-center">
-                    <h1 class="visual-title visual-sub-title">Peraturan Desa</h1>
+                    <h1 class="visual-title visual-sub-title">Peraturan Kabupaten</h1>
                     <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit porro laudantium sequi. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                     <div class="breadcrumb-block">
                         <ol class="breadcrumb">
