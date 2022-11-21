@@ -19,3 +19,4 @@ Route::resource('karangtaruna', 'Web\KtController');
 Route::resource('perangkatdesa', 'Web\PeradesController');
 Route::resource('announ', 'Web\AnnouncementController');
 Route::resource('berita', 'Web\BeritaController');
+Route::resource('aturandesa', 'Web\AturandesaController');
