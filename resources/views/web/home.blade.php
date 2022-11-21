@@ -17,7 +17,7 @@
                                     data-masterspeed="1000" data-rotate="0" data-saveperformance="off"
                                     data-title="Slide" data-description="">
                                     <!-- main image for revolution slider -->
-                                    <img src="/assets/web/img/tes.jpg" alt="image description" data-bgposition="center center"
+                                    <img src="/assets/web/img/banner.jpg" alt="image description" data-bgposition="center center"
                                         data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone"
                                         data-scalestart="100" data-scaleend="120" data-rotatestart="0"
                                         data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0"

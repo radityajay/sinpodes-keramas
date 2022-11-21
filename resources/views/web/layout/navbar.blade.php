@@ -92,7 +92,7 @@
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="index.html"
                                             data-title="Home"> Produk Hukum </a>
                                         <ul class="dropdown-menu no-border-radius">
-                                            <li><a href="perdes.html"> Peraturan Desa </a></li>
+                                            <li><a href="{{ route('aturandesa.index')}}"> Peraturan Desa </a></li>
                                             <li><a href="perkab.html"> Peraturan Kabupaten </a></li>
                                         </ul>
                                     </li>
