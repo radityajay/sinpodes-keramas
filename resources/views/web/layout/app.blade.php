@@ -28,6 +28,8 @@
     <link media="all" rel="stylesheet" href="/assets/web/css/main.css">
     <!-- Custom CSS -->
     <link media="all" rel="stylesheet" href="/assets/web/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
 </head>
 
 <body class="white-overlay">
@@ -141,6 +143,7 @@
     <script type="text/javascript" src="/assets/web/vendors/rev-slider/revolution-addons/snow/revolution.addon.snow.min.js"></script>
     <!-- Revolution Slider Script -->
     <script src="/assets/web/js/revolution.js"></script>
+    @stack('script')
 </body>
 
 </html>

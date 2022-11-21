@@ -133,6 +133,13 @@
                 </li>
                 @endcan
 
+                <li class="{{ (request()->is('admin/pengaduan-masyarakat')) ? 'mm-active' : '' }}">
+                    <a href="{{ route('pengaduan-masyarakat.index') }}" class="waves-effect">
+                        <i class="mdi mdi-clipboard-text"></i>
+                        <span>Pengaduan Masyarakat</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
         <!-- Sidebar -->

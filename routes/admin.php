@@ -32,4 +32,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('perikanan','Admin\PerikananController');
     Route::resource('kerajinan','Admin\KerajinanController');
     Route::resource('usaha-mikro','Admin\UsahaMikroController');
+    Route::resource('pengaduan-masyarakat','Admin\PengaduanMasyarakatController');
 });
