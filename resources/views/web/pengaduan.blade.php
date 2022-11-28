@@ -24,18 +24,33 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <!-- contact form -->
-                                        <form action="#" method="post" id="contact_form" class="waituk_contact-form">
+                                        <form id="submits" action="{{ route('pengaduan.store') }}" method="POST" enctype="multipart/form-data">
+                                            @csrf
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <input type="text" placeholder="FIRST NAME *" id="con_fname"
-                                                            name="con_fname" class="form-control">
+                                                            name="first_name" class="form-control">
+                                                            @if ($errors->any())
+                                                                @foreach ($errors->getMessages() as $key => $val)
+                                                                    @if($key == "first_name")
+                                                                        <div style="color: red;"> {{ $errors->first('first_name') }}</div>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <input type="text" placeholder="LAST NAME *" id="con_lname"
-                                                            name="con_lname" class="form-control">
+                                                            name="last_name" class="form-control">
+                                                            @if ($errors->any())
+                                                                @foreach ($errors->getMessages() as $key => $val)
+                                                                    @if($key == "last_name")
+                                                                        <div style="color: red;"> {{ $errors->first('last_name') }}</div>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -43,24 +58,45 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <input type="tel" placeholder="PHONE NUMBER" id="con_phone"
-                                                            name="con_phone" class="form-control">
+                                                            name="phone_number" class="form-control">
+                                                            @if ($errors->any())
+                                                                @foreach ($errors->getMessages() as $key => $val)
+                                                                    @if($key == "phone_number")
+                                                                        <div style="color: red;"> {{ $errors->first('phone_number') }}</div>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <input type="email" placeholder="EMAIL ADDRESS *" id="con_email"
-                                                            name="con_email" class="form-control">
+                                                            name="email" class="form-control">
+                                                            @if ($errors->any())
+                                                                @foreach ($errors->getMessages() as $key => $val)
+                                                                    @if($key == "email")
+                                                                        <div style="color: red;"> {{ $errors->first('email') }}</div>
+                                                                    @endif
+                                                                @endforeach
+                                                            @endif
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <textarea class="form-control" placeholder="MESSAGE *" id="con_message"
-                                                    name="con_message"></textarea>
+                                                    name="message"></textarea>
+                                                    @if ($errors->any())
+                                                        @foreach ($errors->getMessages() as $key => $val)
+                                                            @if($key == "message")
+                                                                <div style="color: red;"> {{ $errors->first('message') }}</div>
+                                                            @endif
+                                                        @endforeach
+                                                    @endif
                                             </div>
                                             <div class="btn-container">
-                                                <button id="btn_sent" class="btn btn-primary btn-arrow">SEND
+                                                <button type="submit" class="btn btn-primary btn-arrow">SEND
                                                     MESSAGE</button>
-                                                <p id="error_message"> </p>
+                                                {{-- <p id="error_message"> </p> --}}
                                             </div>
                                         </form>
                                     </div>
@@ -111,3 +147,42 @@
                 <!--/main content wrapper -->
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    <?php
+    if (session()->has('success')) {
+        $message = session()->get('success');
+        echo "swal(
+            'Success',
+            '<strong>Success! </strong>" . $message . "',
+            'success');";
+    }
+    if (session()->has('error')) {
+        $message = session()->get('error');
+        echo "swal(
+            'error',
+            '<strong>Error! </strong>" . $message . "',
+            'error');";
+    }
+    ?>
+
+    $('.dropify').dropify({
+        messages: {
+            'default': 'Drop a file here or click',
+            'replace': 'Drop or click to replace',
+            'remove': 'Remove',
+            'error': 'Ooops, something wrong happended.'
+        }
+    });
+
+    CKEDITOR.replace(
+        'ckeditor', {
+            toolbar: [
+                ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo', 'FontSize', 'Bold', 'Italic', 'Underline', 'Center', 'Link', 'Unlink', 'Outdent', 'Indent', 'NumberedList', 'BulletedList', 'format', 'Image', ]
+            ],
+            height: 200
+        }
+    );
+</script>
+@endpush
