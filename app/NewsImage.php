@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Uuid;
 
-class Perkebunan extends Model
+class NewsImage extends Model
 {
     use SoftDeletes;
 
     public $incrementing = false;
 
-    protected $table = 'perkebunans';
+    protected $table = 'new_images';
 
     protected $keyType = 'string';
 
@@ -21,9 +21,7 @@ class Perkebunan extends Model
 
     protected $fillable = [
         'id',
-        'name',
-        'date',
-        'description',
+        'new_id',
         'photo'
     ];
 
@@ -39,6 +37,6 @@ class Perkebunan extends Model
 
     public function getPhotoUrlAttribute()
     {
-        return Storage::url('public/upload/pertanian/' . $this->photo);
+        return Storage::url('public/upload/news-image/' . $this->photo);
     }
 }

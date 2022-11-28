@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\News;
+use App\NewsImage;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -61,7 +62,15 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('admin.news.form');
+        $news = News::all();
+        if(!empty($news->id)){
+            $listImage = NewsImage::where('new_id', $news->id)->get();
+        }else{
+            $listImage = null;
+        }
+        return view('admin.news.form',[
+            'listImage' => $listImage
+        ]);
     }
 
     /**
@@ -76,32 +85,38 @@ class NewsController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'photo' => 'required',
         ], [
             'required' => ':attribute tidak boleh kosong!',
             'unique' => ':attribute sudah digunakan!'
         ], [
             'title' => 'judul',
             'description' => 'deskripsi',
-            'photo' => 'foto',
         ]);
 
         try {
-            if (!empty($request->file('photo'))) {
-                $file = $request->file('photo');
+            // dd($request->list_images);
+            // if (!empty($request->file('photo'))) {
+            //     $file = $request->file('photo');
 
-                $photo = time() . "-" . $file->getClientOriginalName();
+            //     $photo = time() . "-" . $file->getClientOriginalName();
 
-                $path = $request->file('photo')->storeAs('public/upload/news/', $photo);
-            }
-            News::create([
+            //     $path = $request->file('photo')->storeAs('public/upload/news/', $photo);
+            // }
+            $news = News::create([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
                 'description' => $request->description,
                 'date' => Carbon::now(),
                 'status' => 'PENDING',
-                'photo' => isset($photo) ? $photo : null,
             ]);
+
+            foreach ($request->list_images as $key => $value) {
+                $data_detail = [
+                    'new_id' => $news->id,
+                    'photo' => isset($value['url']) ? $value['url'] : null,
+                ];
+                NewsImage::create($data_detail);
+            }
 
             return redirect()->route('news.index')
                 ->with('success', 'Berita berhasil dibuat');
@@ -141,11 +156,11 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $data = News::find($id);
+        $data = News::with(['images'])->where('id', $id)->first();
         if ($data == null) {
             abort(404);
         }
-
+        // dd($data);
         return view('admin.news.form', [
             'data' => $data,
         ]);
@@ -160,7 +175,8 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oldPhoto = News::where('id', $id)->orderBy('created_at', 'desc')->first();
+        // dd($request->list_images);
+        // $oldPhoto = News::where('id', $id)->orderBy('created_at', 'desc')->first();
 
         $request->validate([
             'title' => 'required',
@@ -174,24 +190,22 @@ class NewsController extends Controller
         ]);
 
         try {
-            if ($request->file('photo')) {
-                $file = $request->file('photo');
-
-                $photo = time() . "-" . $file->getClientOriginalName();
-
-                $path = $request->file('photo')->storeAs('public/upload/news/', $photo);
-            } else {
-                $photo = $oldPhoto ? $oldPhoto->photo : '-';
-            }
             $formData = ([
                 'title' => $request->title,
                 'sub_title' => $request->sub_title,
                 'description' => $request->description,
                 'status' => 'PENDING',
-                'photo' => isset($photo) ? $photo : null,
             ]);
 
             News::find($id)->update($formData);
+
+            foreach ($request->list_images as $key => $value) {
+                $data_detail = [
+                    'new_id' => $id,
+                    'photo' => isset($value['url']) ? $value['url'] : null,
+                ];
+                NewsImage::where('id',$value['id'])->update($data_detail);
+            }
 
             return redirect()->route('news.index')
                 ->with('success', 'Berita berhasil diubah');

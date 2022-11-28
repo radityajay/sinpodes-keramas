@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::resource('/', 'Web\HomeController');
 Route::resource('profildesa', 'Web\ProfilController');
 Route::resource('linmas', 'Web\LinmasController');

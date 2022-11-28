@@ -1,6 +1,6 @@
 @extends('admin.partial.app')
 
-@section('title', 'Peraturan Perbekel')
+@section('title', 'SK Perbekel')
 
 @section('content')
 <div class="container-fluid">
@@ -11,14 +11,14 @@
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Peraturan Perbekel</li>
+                    <li class="breadcrumb-item active" aria-current="page">SK Perbekel</li>
                 </ol>
             </nav>
         </div>
         <div class="col-md-2">
-            <a href="{{ route('perbekel-rules.create') }}" class="btn btn-keramas btn-icon-text mb-2 mb-md-0">
+            <a href="{{ route('sk-perbekel.create') }}" class="btn btn-keramas btn-icon-text mb-2 mb-md-0">
                 <i class="fas fa-plus"></i>
-                Tambah Peraturan Perbekel
+                Tambah SK Perbekel
             </a>
         </div>
     </div>
@@ -72,7 +72,7 @@
     $(document).ready(function() {
         let $dtSearch = $('#formSearch');
         dataTable = $("#datatable").DataTable({
-            ajax: "{{ route('perbekel-rules.index') }}?type=datatable",
+            ajax: "{{ route('sk-perbekel.index') }}?type=datatable",
             processing: true,
             autoWidth: false,
             serverSide: true,

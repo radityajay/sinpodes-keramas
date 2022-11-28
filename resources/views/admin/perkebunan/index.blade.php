@@ -1,6 +1,6 @@
 @extends('admin.partial.app')
 
-@section('title', 'Perkebunan')
+@section('title', 'Pertanian')
 
 @section('content')
 <div class="container-fluid">
@@ -11,14 +11,14 @@
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Perkebunan</li>
+                    <li class="breadcrumb-item active" aria-current="page">Pertanian</li>
                 </ol>
             </nav>
         </div>
         <div class="col-md-2">
-            <a href="{{ route('perkebunan.create') }}" class="btn btn-keramas btn-icon-text mb-2 mb-md-0">
+            <a href="{{ route('pertanian.create') }}" class="btn btn-keramas btn-icon-text mb-2 mb-md-0">
                 <i class="fas fa-plus"></i>
-                Tambah Perkebunan
+                Tambah Pertanian
             </a>
         </div>
     </div>
@@ -71,7 +71,7 @@
     $(document).ready(function() {
         let $dtSearch = $('#formSearch');
         dataTable = $("#datatable").DataTable({
-            ajax: "{{ route('perkebunan.index') }}?type=datatable",
+            ajax: "{{ route('pertanian.index') }}?type=datatable",
             processing: true,
             autoWidth: false,
             serverSide: true,

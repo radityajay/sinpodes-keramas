@@ -17,7 +17,7 @@ class News extends Model
 
     protected $keyType = 'string';
 
-    protected $appends = ['photo_url'];
+    // protected $appends = ['photo_url'];
 
     protected $fillable = [
         'id',
@@ -25,9 +25,13 @@ class News extends Model
         'sub_title',
         'date',
         'description',
-        'photo',
         'status'
     ];
+
+    public function images()
+    {
+        return $this->hasMany('App\NewsImage', 'new_id');
+    }
 
     protected static function boot()
     {

@@ -69,12 +69,14 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         @can(['village-rules.index'])
-                        <li class="{{ (request()->is('admin/village-rules/*')) ? 'mm-active' : '' }}"><a href="{{ route('village-rules.index') }}">Desa</a></li>
+                        <li class="{{ (request()->is('admin/village-rules/*')) ? 'mm-active' : '' }}"><a href="{{ route('village-rules.index') }}">Perdes</a></li>
                         @endcan
-                        @can(['region-rules.index'])
-                        <li class="{{ (request()->is('admin/region-rules/*')) ? 'mm-active' : '' }}"><a href="{{ route('region-rules.index') }}">Kabupaten</a></li>
+                        @can(['perbekel-rules.index'])
+                        <li class="{{ (request()->is('admin/perbekel-rules/*')) ? 'mm-active' : '' }}"><a href="{{ route('perbekel-rules.index') }}">Perbekel</a></li>
                         @endcan
-                        
+                        @can(['sk-perbekel.index'])
+                        <li class="{{ (request()->is('admin/sk-perbekel/*')) ? 'mm-active' : '' }}"><a href="{{ route('sk-perbekel.index') }}">SK Perbekel</a></li>
+                        @endcan
                         
                     </ul>
                 </li>
@@ -100,7 +102,7 @@
                         <li class="{{ (request()->is('admin/kuliner/*')) ? 'mm-active' : '' }}"><a href="{{ route('kuliner.index') }}">Kuliner</a></li>
                         @endcan
                         @can(['perkebunan.index'])
-                        <li class="{{ (request()->is('admin/perkebunan/*')) ? 'mm-active' : '' }}"><a href="{{ route('perkebunan.index') }}">Perkebunan</a></li>
+                        <li class="{{ (request()->is('admin/pertanian/*')) ? 'mm-active' : '' }}"><a href="{{ route('pertanian.index') }}">Pertanian</a></li>
                         @endcan
                         @can(['perikanan.index'])
                         <li class="{{ (request()->is('admin/perikanan/*')) ? 'mm-active' : '' }}"><a href="{{ route('perikanan.index') }}">Perikanan</a></li>
@@ -132,14 +134,14 @@
                     </ul>
                 </li>
                 @endcan
-
+                @can(['pengaduan-masyarakat.index'])
                 <li class="{{ (request()->is('admin/pengaduan-masyarakat')) ? 'mm-active' : '' }}">
                     <a href="{{ route('pengaduan-masyarakat.index') }}" class="waves-effect">
                         <i class="mdi mdi-clipboard-text"></i>
                         <span>Pengaduan Masyarakat</span>
                     </a>
                 </li>
-
+                @endcan
             </ul>
         </div>
         <!-- Sidebar -->

@@ -27,11 +27,11 @@ class PerkebunanController extends Controller
 
                     // $action .= '<a href="' . route('village-apparature.show', $data->id) . '" class="me-3 text-warning" data-bs-toggle="tooltip" data-placement="top" title="Detail"><i class="mdi mdi-file-document font-size-18"></i></a>';
 
-                    $action .= '<a href="' . route('perkebunan.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
+                    $action .= '<a href="' . route('pertanian.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
 
                     // $action .= '<a href="' . route('perkebunan.show', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Show"><i class="mdi mdi-eye font-size-18"></i></a>';
 
-                    $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="perkebunan/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
+                    $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="pertanian/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
 
                     return $action;
                 })
@@ -79,7 +79,7 @@ class PerkebunanController extends Controller
 
                 $photo = time() . "-" . $file->getClientOriginalName();
 
-                $path = $request->file('photo')->storeAs('public/upload/perkebunan/', $photo);
+                $path = $request->file('photo')->storeAs('public/upload/pertanian/', $photo);
             }
             Perkebunan::create([
                 'name' => $request->name,
@@ -88,8 +88,8 @@ class PerkebunanController extends Controller
                 'photo' => isset($photo) ? $photo : null,
             ]);
 
-            return redirect()->route('perkebunan.index')
-                ->with('success', 'Perkebunan berhasil dibuat');
+            return redirect()->route('pertanian.index')
+                ->with('success', 'Pertanian berhasil dibuat');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
@@ -172,8 +172,8 @@ class PerkebunanController extends Controller
 
             Perkebunan::find($id)->update($formData);
 
-            return redirect()->route('perkebunan.index')
-                ->with('success', 'Perkebunan berhasil diubah');
+            return redirect()->route('pertanian.index')
+                ->with('success', 'Pertanian berhasil diubah');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
@@ -197,7 +197,7 @@ class PerkebunanController extends Controller
     {
         Perkebunan::destroy($id);
         return response()->json([
-            "message" => "Perkebunan berhasil dihapus."
+            "message" => "Pertanian berhasil dihapus."
         ]);
     }
 }

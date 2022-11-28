@@ -7,24 +7,24 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Storage;
 use Uuid;
 
-class Perkebunan extends Model
+class SKPerbekel extends Model
 {
     use SoftDeletes;
 
     public $incrementing = false;
 
-    protected $table = 'perkebunans';
+    protected $table = 's_k_perbekels';
+
+    protected $appends = ['file_url'];
 
     protected $keyType = 'string';
 
-    protected $appends = ['photo_url'];
-
     protected $fillable = [
         'id',
-        'name',
+        'title',
         'date',
         'description',
-        'photo'
+        'file',
     ];
 
     protected static function boot()
@@ -37,8 +37,7 @@ class Perkebunan extends Model
         });
     }
 
-    public function getPhotoUrlAttribute()
-    {
-        return Storage::url('public/upload/pertanian/' . $this->photo);
+    public function getFileUrlAttribute(){
+        return Storage::url('public/upload/rules/'.$this->file);
     }
 }

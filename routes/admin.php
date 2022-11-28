@@ -21,16 +21,19 @@ Route::group(['middleware' => 'auth'], function () {
     Route::any('news/{id}/reject', 'Admin\NewsController@reject')->name('news.reject');
     Route::resource('news', 'Admin\NewsController');
     Route::resource('village-rules', 'Admin\VillageRuleController');
-    Route::resource('region-rules', 'Admin\RegionRuleController');
+    Route::resource('perbekel-rules', 'Admin\RegionRuleController');
+    Route::resource('sk-perbekel', 'Admin\SkPerbekelController');
     Route::resource('user','Admin\RoleUserController');
     Route::resource('role','Admin\RoleController');
     Route::resource('pariwisata','Admin\PariwisataController');
     Route::resource('alam','Admin\AlamController');
     Route::resource('senbud','Admin\SenbudController');
     Route::resource('kuliner','Admin\KulinerController');
-    Route::resource('perkebunan','Admin\PerkebunanController');
+    Route::resource('pertanian','Admin\PerkebunanController');
     Route::resource('perikanan','Admin\PerikananController');
     Route::resource('kerajinan','Admin\KerajinanController');
     Route::resource('usaha-mikro','Admin\UsahaMikroController');
     Route::resource('pengaduan-masyarakat','Admin\PengaduanMasyarakatController');
 });
+Route::post('/upload', 'Admin\UploadController@upload');
+

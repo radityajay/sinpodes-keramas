@@ -3,12 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\RegionRule;
+use App\SKPerbekel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
-class RegionRuleController extends Controller
+class SkPerbekelController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +18,7 @@ class RegionRuleController extends Controller
     public function index(Request $request)
     {
         if ($request->type == 'datatable') {
-            $data = RegionRule::orderBy('created_at', 'desc');
+            $data = SKPerbekel::orderBy('created_at', 'desc');
             return datatables()->of($data)
                 ->editColumn('date', function ($data) {
                     return date('d M Y', strtotime($data->date));
@@ -27,16 +28,16 @@ class RegionRuleController extends Controller
 
                     // $action .= '<a href="' . route('region-apparature.show', $data->id) . '" class="me-3 text-warning" data-bs-toggle="tooltip" data-placement="top" title="Detail"><i class="mdi mdi-file-document font-size-18"></i></a>';
 
-                    $action .= '<a href="' . route('perbekel-rules.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
+                    $action .= '<a href="' . route('sk-perbekel.edit', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Edit"><i class="mdi mdi-pencil font-size-18"></i></a>';
 
-                    $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="perbekel-rules/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
+                    $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="sk-perbekel/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
 
                     return $action;
                 })
                 ->rawColumns(['action', 'status'])
                 ->make(true);
         } else {
-            return view('admin.region-rules.index');
+            return view('admin.sk-perbekel.index');
         }
     }
 
@@ -47,7 +48,7 @@ class RegionRuleController extends Controller
      */
     public function create()
     {
-        return view('admin.region-rules.form');
+        return view('admin.sk-perbekel.form');
     }
 
     /**
@@ -80,15 +81,15 @@ class RegionRuleController extends Controller
 
                 $path = $request->file('file')->storeAs('public/upload/rules/', $file);
             }
-            RegionRule::create([
+            SKPerbekel::create([
                 'title' => $request->title,
                 'description' => $request->description,
                 'date' => Carbon::now(),
                 'file' => isset($file) ? $file : null,
             ]);
 
-            return redirect()->route('perbekel-rules.index')
-                ->with('success', 'Peraturan Perbekel berhasil dibuat');
+            return redirect()->route('sk-perbekel.index')
+                ->with('success', 'SK Perbekel berhasil dibuat');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
@@ -121,12 +122,12 @@ class RegionRuleController extends Controller
      */
     public function edit($id)
     {
-        $data = RegionRule::find($id);
+        $data = SKPerbekel::find($id);
         if ($data == null) {
             abort(404);
         }
 
-        return view('admin.region-rules.form', [
+        return view('admin.sk-perbekel.form', [
             'data' => $data,
         ]);
     }
@@ -140,7 +141,7 @@ class RegionRuleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $oldFiles = RegionRule::where('id', $id)->orderBy('created_at', 'desc')->first();
+        $oldFiles = SKPerbekel::where('id', $id)->orderBy('created_at', 'desc')->first();
 
         $request->validate([
             'title' => 'required',
@@ -169,10 +170,10 @@ class RegionRuleController extends Controller
                 'file' => isset($file) ? $file : null,
             ]);
 
-            RegionRule::find($id)->update($formData);
+            SKPerbekel::find($id)->update($formData);
 
-            return redirect()->route('perbekel-rules.index')
-                ->with('success', 'Peraturan Perbekel berhasil diubah');
+            return redirect()->route('sk-perbekel.index')
+                ->with('success', 'SK Perbekel berhasil diubah');
         } catch (\Exception $e) {
             return redirect()
                 ->back()
@@ -194,9 +195,9 @@ class RegionRuleController extends Controller
      */
     public function destroy($id)
     {
-        RegionRule::destroy($id);
+        SKPerbekel::destroy($id);
         return response()->json([
-            "message" => "Peraturan Perbekel berhasil dihapus."
+            "message" => "SK Perbekel berhasil dihapus."
         ]);
     }
 }

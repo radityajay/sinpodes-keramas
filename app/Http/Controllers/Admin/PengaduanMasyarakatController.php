@@ -22,7 +22,7 @@ class PengaduanMasyarakatController extends Controller
                     return date('d M Y', strtotime($data->date));
                 })
                 ->addColumn('fullname', function($data) {
-                    return $data->first_name + ' ' + $data->last_name;
+                    return $data->first_name . ' ' . $data->last_name;
                 })
                 ->addColumn('action', function ($data) {
                     $action = '';
@@ -33,7 +33,7 @@ class PengaduanMasyarakatController extends Controller
 
                     $action .= '<a href="' . route('pengaduan-masyarakat.show', $data->id) . '" class="me-3 text-primary" data-bs-toggle="tooltip" data-placement="top" title="Show"><i class="mdi mdi-eye font-size-18"></i></a>';
 
-                    $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="pengaduan-masyarakat/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
+                    // $action .= '<a class="text-danger delete-item" data-label="Customer" data-url="pengaduan-masyarakat/' . $data->id . '" data-id="' . $data->id . '" data-bs-toggle="tooltip" data-placement="top" title="Delete"><i class="mdi mdi-trash-can font-size-18"></i></a>';
 
                     return $action;
                 })

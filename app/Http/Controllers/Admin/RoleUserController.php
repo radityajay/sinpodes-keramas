@@ -143,7 +143,42 @@ class RoleUserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            // 'role_id' => 'required',
+        ]);
+
+        try {
+            $formData = ([
+                'name' => $request->name,
+                'username' => $request->username,
+                'email' => $request->email,
+                'role_id' => $request->role_id,
+                'is_active' => $request->is_active == 'true' ? true : false
+            ]);
+
+            if($request->password != null || $request->password != ''){
+                $formData['password'] = bcrypt($request->password);
+            }
+
+            RoleUser::find($id)->update($formData);
+
+            return redirect()->route('user.index')
+                ->with('success', 'User berhasil diubah');
+        } catch (\Exception $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        } catch (\Throwable $e) {
+            return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', "Error on line {$e->getLine()}: {$e->getMessage()}");
+        }
     }
 
     /**
@@ -154,6 +189,15 @@ class RoleUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            RoleUser::find($id)->delete();
+            return response()->json([
+                "message" => "User berhasil dihapus."
+            ]);
+        } catch (\Exception $e) {
+            return response()->json("Error on line {$e->getLine()}: {$e->getMessage()}", 500);
+        } catch (\Throwable $e) {
+            return response()->json("Error on line {$e->getLine()}: {$e->getMessage()}", 500);
+        }
     }
 }

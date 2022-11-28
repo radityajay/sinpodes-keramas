@@ -1,9 +1,9 @@
 @extends('admin.partial.app')
 
 @if(!isset($data))
-@section('title', 'Tambah Perkebunan')
+@section('title', 'Tambah Pertanian')
 @else
-@section('title', 'Edit Perkebunan')
+@section('title', 'Edit Pertanian')
 @endif
 
 @section('content')
@@ -15,7 +15,7 @@
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('perkebunan.index') }}">Perkebunan</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('pertanian.index') }}">Pertanian</a></li>
                     @if(!isset($data))
                     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
                     @else
@@ -33,7 +33,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form id="submits" action="{{ !isset($data) ? route('perkebunan.store') : route('perkebunan.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                    <form id="submits" action="{{ !isset($data) ? route('pertanian.store') : route('pertanian.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @isset($data)
                         @method('PUT')
@@ -89,7 +89,7 @@
                         <br>
                         <div class="col-md-12">
                             <div class="form-group" style="float: right">
-                                <a href="{{ route('perkebunan.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
+                                <a href="{{ route('pertanian.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
                                 <button type="submit" class="btn btn-keramas mr-2"><i class="ri-save-line"></i> Simpan</button>
                             </div>
                         </div>

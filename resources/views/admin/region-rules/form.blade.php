@@ -1,9 +1,9 @@
 @extends('admin.partial.app')
 
 @if(!isset($data))
-@section('title', 'Tambah Peraturan Kabupaten')
+@section('title', 'Tambah Peraturan Perbekel')
 @else
-@section('title', 'Edit Peraturan Kabupaten')
+@section('title', 'Edit Peraturan Perbekel')
 @endif
 
 @section('content')
@@ -15,7 +15,7 @@
             <nav class="page-breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('region-rules.index') }}">Peraturan Kabupaten</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('perbekel-rules.index') }}">Peraturan Perbekel</a></li>
                     @if(!isset($data))
                     <li class="breadcrumb-item active" aria-current="page">Tambah</li>
                     @else
@@ -33,7 +33,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <form id="submits" action="{{ !isset($data) ? route('region-rules.store') : route('region-rules.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                    <form id="submits" action="{{ !isset($data) ? route('perbekel-rules.store') : route('perbekel-rules.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @isset($data)
                         @method('PUT')
@@ -89,7 +89,7 @@
                         <br>
                         <div class="col-md-12">
                             <div class="form-group" style="float: right">
-                                <a href="{{ route('region-rules.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
+                                <a href="{{ route('perbekel-rules.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
                                 <button type="submit" class="btn btn-keramas mr-2"><i class="ri-save-line"></i> Simpan</button>
                             </div>
                         </div>

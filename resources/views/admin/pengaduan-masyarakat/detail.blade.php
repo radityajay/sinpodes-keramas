@@ -53,7 +53,7 @@
                                     <p><strong>Nama Lengkap</strong></p>
                                 </div>
                                 <div class="col-lg-8 col-sm-8 col-12">
-                                    {{ $data->first_name + ' ' + $data->last_name }}
+                                    {{ $data->first_name . ' ' . $data->last_name }}
                                 </div>
                             </div>
     
@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group" style="float: right">
-                            <a href="{{ route('news.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
+                            <a href="{{ route('pengaduan-masyarakat.index') }}" class="btn btn-light"><i class="ri-arrow-left-line"></i> Kembali</a>
                             {{-- <button type="submit" class="btn btn-keramas mr-2"><i class="ri-save-line"></i> Simpan</button> --}}
                         </div>
                     </div>

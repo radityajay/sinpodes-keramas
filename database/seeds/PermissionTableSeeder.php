@@ -81,10 +81,17 @@ class PermissionTableSeeder extends Seeder
         ]);
 
         Permission::insert([
-            ['id' => 'region-rules.index', 'name' => 'Lihat Peraturan Kabupaten', 'group' => 'PERATURANKABUPATEN'],
-            ['id' => 'region-rules.create', 'name' => 'Buat Peraturan Kabupaten', 'group' => 'PERATURANKABUPATEN'],
-            ['id' => 'region-rules.edit', 'name' => 'Edit Peraturan Kabupaten', 'group' => 'PERATURANKABUPATEN'],
-            ['id' => 'region-rules.delete', 'name' => 'Hapus Peraturan Kabupaten', 'group' => 'PERATURANKABUPATEN'],
+            ['id' => 'perbekel-rules.index', 'name' => 'Lihat Peraturan Perbekel', 'group' => 'PERATURANPERBEKEL'],
+            ['id' => 'perbekel-rules.create', 'name' => 'Buat Peraturan Perbekel', 'group' => 'PERATURANPERBEKEL'],
+            ['id' => 'perbekel-rules.edit', 'name' => 'Edit Peraturan Perbekel', 'group' => 'PERATURANPERBEKEL'],
+            ['id' => 'perbekel-rules.delete', 'name' => 'Hapus Peraturan Perbekel', 'group' => 'PERATURANPERBEKEL'],
+        ]);
+
+        Permission::insert([
+            ['id' => 'sk-perbekel.index', 'name' => 'Lihat SK Perbekel', 'group' => 'SKPERBEKEL'],
+            ['id' => 'sk-perbekel.create', 'name' => 'Buat SK Perbekel', 'group' => 'SKPERBEKEL'],
+            ['id' => 'sk-perbekel.edit', 'name' => 'Edit SK Perbekel', 'group' => 'SKPERBEKEL'],
+            ['id' => 'sk-perbekel.delete', 'name' => 'Hapus SK Perbekel', 'group' => 'SKPERBEKEL'],
         ]);
 
         Permission::insert([
@@ -116,10 +123,10 @@ class PermissionTableSeeder extends Seeder
         ]);
 
         Permission::insert([
-            ['id' => 'perkebunan.index', 'name' => 'Lihat Perkebunan', 'group' => 'PERKEBUNAN'],
-            ['id' => 'perkebunan.create', 'name' => 'Buat Perkebunan', 'group' => 'PERKEBUNAN'],
-            ['id' => 'perkebunan.edit', 'name' => 'Edit Perkebunan', 'group' => 'PERKEBUNAN'],
-            ['id' => 'perkebunan.delete', 'name' => 'Hapus Perkebunan', 'group' => 'PERKEBUNAN'],
+            ['id' => 'perkebunan.index', 'name' => 'Lihat Pertanian', 'group' => 'PERKEBUNAN'],
+            ['id' => 'perkebunan.create', 'name' => 'Buat Pertanian', 'group' => 'PERKEBUNAN'],
+            ['id' => 'perkebunan.edit', 'name' => 'Edit Pertanian', 'group' => 'PERKEBUNAN'],
+            ['id' => 'perkebunan.delete', 'name' => 'Hapus Pertanian', 'group' => 'PERKEBUNAN'],
         ]);
 
         Permission::insert([
@@ -141,6 +148,7 @@ class PermissionTableSeeder extends Seeder
             ['id' => 'mikro.create', 'name' => 'Buat Usaha Mikro', 'group' => 'MIKRO'],
             ['id' => 'mikro.edit', 'name' => 'Edit Usaha Mikro', 'group' => 'MIKRO'],
             ['id' => 'mikro.delete', 'name' => 'Hapus Usaha Mikro', 'group' => 'MIKRO'],
+            ['id' => 'pengaduan-masyarakat.index', 'name' => 'Lihat Pengaduan Masyarakat', 'group' => 'PENGADUAN'],
         ]);
     }
 }
