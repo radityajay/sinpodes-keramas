@@ -93,10 +93,10 @@
                                         Meningkatkan Kualitas Pelayanan Kepada Masyarakat Serta Menyelenggarakan Urusan Pemerintahan Desa Secara Terbuka dan Betanggung Jawab Sesuai Dengan Peraturan Perundang-Undangan;
                                     </li>
                                     <li>
-                                        Harmonisasi Hubungan Kelembagaan antara Perbekel dengan Perangkat Desa, antara Perbekel/Desa Dinas dengan Desa Adat, Subak atau Kelompok Masyarakat;
+                                        Harmonisasi Hubungan Kerjasama Kelembagaan antara Perbekel dengan Perangkat Desa, antara Perbekel/Desa Dinas dengan Desa Adat, Subak atau Kelompok Masyarakat;
                                     </li>
                                     <li>
-                                        Membangun Sistem Perencanaan dan Penganggaran Desa yang Aspiratif dan Partisipatif;
+                                        Membangun Sistem Perencanaan dan Anggaran Desa yang Aspiratif dan Partisipatif;
                                     </li>
                                     <li>
                                         Menumbuhkembangkan serta Mendorong Generasi Muda Dalam Meningkatkan Prestasi Dalam Bidang Pendidikan, Olahraga, Seni, Budaya dan Ketenagakerjaan;
@@ -105,10 +105,10 @@
                                         Menciptakan Lingkungan yang Asri dan Nyaman serta Meningkatkan Pelayanan Kebersihan Desa;
                                     </li>
                                     <li>
-                                        Mengelola Potensi dan Aset Desa Untuk Meningkatkan Perekonomian dengan Membangun Kelembagaan Ekonomi Lokal yang Mandiri dan Produktif, serta
+                                        Mengelola Potensi dan Aset Desa Untuk Meningkatkan Perekonomian dengan Membangun Kelembagaan Ekonomi Lokal yang Mandiri dan Produktif;
                                     </li>
                                     <li>
-                                        Meningkatkan Mutu Kesejahteraan Masyarakat untuk Mencapai Taraf Kehidupan yang Lebih Baik Sehingga Menjadi Desa yang Maju dan Mandiri.
+                                        Meningkatkan Mutu Kesejahteraan Masyarakat untuk Mencapai Taraf Kehidupan yang Lebih Baik dan Layak Sehingga Menjadi Desa yang Maju dan Mandiri.
                                     </li>
                                 </ol>
                 </div>

@@ -96,9 +96,9 @@
                                             <li><a href="{{ route('aturankabupaten.index')}}"> Peraturan Kabupaten </a></li>
                                         </ul>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <a href="contact.html"> APBDesa </a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href="{{ route('pengaduan.index')}}"> Pengaduan Masyarakat </a>
                                     </li>
