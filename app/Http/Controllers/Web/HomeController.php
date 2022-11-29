@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
+use App\News;
+use App\NewsImage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +16,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('web.home');
+        $berita = News::with(['images'])->get();
+        // $fotoberita = NewsImage::where('new_id', $berita->id)->get();
+        // dd($berita);
+        return view('web.home',[
+            'berita' => $berita,
+            // 'fotoberita' => $fotoberita
+        ]);
     }
 
     /**
