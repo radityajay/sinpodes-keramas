@@ -1,5 +1,5 @@
 @extends('web.layout.app')
-@section('title', 'Perkebunan')
+@section('title', 'Pertanian')
 @section('content')
 
 <div>
@@ -9,7 +9,7 @@
             <div class="centered">
                 <div class="container">
                     <div class="visual-text visual-center">
-                        <h1 class="visual-title visual-sub-title">Perkebunan</h1>
+                        <h1 class="visual-title visual-sub-title">Pertanian</h1>
                     </div>
                 </div>
             </div>
