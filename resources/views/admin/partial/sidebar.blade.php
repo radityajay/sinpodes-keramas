@@ -35,6 +35,12 @@
                         @can(['linmas.index'])
                         <li class="{{ (request()->is('admin/linmas-apparature/*')) ? 'mm-active' : '' }}"><a href="{{ route('linmas-apparature.index') }}">Linmas</a></li>
                         @endcan
+                        @can(['bpd.index'])
+                        <li class="{{ (request()->is('admin/bpd-apparature/*')) ? 'mm-active' : '' }}"><a href="{{ route('bpd-apparature.index') }}">BPD</a></li>
+                        @endcan
+                        @can(['lpm.index'])
+                        <li class="{{ (request()->is('admin/lpm-apparature/*')) ? 'mm-active' : '' }}"><a href="{{ route('lpm-apparature.index') }}">LPM</a></li>
+                        @endcan
                         @can(['kt.index'])
                         <li class="{{ (request()->is('admin/kt-apparature/*')) ? 'mm-active' : '' }}"><a href="{{ route('kt-apparature.index') }}">Karang Taruna</a></li>
                         @endcan

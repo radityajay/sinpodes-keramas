@@ -13,6 +13,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('village-apparature', 'Admin\PerangkatDesaController');
     Route::resource('pkk-apparature', 'Admin\PkkController');
     Route::resource('linmas-apparature', 'Admin\LinmasController');
+    Route::resource('bpd-apparature', 'Admin\BpdController');
+    Route::resource('lpm-apparature', 'Admin\LpmController');
     Route::resource('kt-apparature', 'Admin\KarangTarunaController');
     Route::any('announcement/{id}/accepted', 'Admin\AnnouncementController@accepted')->name('announcement.accepted');
     Route::any('announcement/{id}/reject', 'Admin\AnnouncementController@reject')->name('announcement.reject');

@@ -44,6 +44,20 @@ class PermissionTableSeeder extends Seeder
         ]);
 
         Permission::insert([
+            ['id' => 'bpd.index', 'name' => 'Lihat BPD', 'group' => 'BPD'],
+            ['id' => 'bpd.create', 'name' => 'Buat BPD', 'group' => 'BPD'],
+            ['id' => 'bpd.edit', 'name' => 'Edit BPD', 'group' => 'BPD'],
+            ['id' => 'bpd.delete', 'name' => 'Hapus BPD', 'group' => 'BPD'],
+        ]);
+
+        Permission::insert([
+            ['id' => 'lpm.index', 'name' => 'Lihat LPM', 'group' => 'LPM'],
+            ['id' => 'lpm.create', 'name' => 'Buat LPM', 'group' => 'LPM'],
+            ['id' => 'lpm.edit', 'name' => 'Edit LPM', 'group' => 'LPM'],
+            ['id' => 'lpm.delete', 'name' => 'Hapus LPM', 'group' => 'LPM'],
+        ]);
+
+        Permission::insert([
             ['id' => 'kt.index', 'name' => 'Lihat Karang Taruna', 'group' => 'KT'],
             ['id' => 'kt.create', 'name' => 'Buat Karang Taruna', 'group' => 'KT'],
             ['id' => 'kt.edit', 'name' => 'Edit Karang Taruna', 'group' => 'KT'],
