@@ -37,6 +37,12 @@
                                             <li class="dropdown dropdown-left dropdown-parent">
                                                 <a href="{{ route('linmas.index')}}"> Linmas</a>
                                             </li>
+                                            <li class="dropdown dropdown-left dropdown-parent">
+                                                <a href="{{ route('bpd.index')}}"> BPD</a>
+                                            </li>
+                                            <li class="dropdown dropdown-left dropdown-parent">
+                                                <a href="{{ route('lpm.index')}}"> LPM</a>
+                                            </li>
                                             <li><a href="{{ route('karangtaruna.index')}}"> Karang Taruna </a></li>
                                         </ul>
                                     </li>

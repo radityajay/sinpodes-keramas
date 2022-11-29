@@ -15,6 +15,8 @@
 Route::resource('/', 'Web\HomeController');
 Route::resource('profildesa', 'Web\ProfilController');
 Route::resource('linmas', 'Web\LinmasController');
+Route::resource('bpd', 'Web\BpdController');
+Route::resource('lpm', 'Web\LpmController');
 Route::resource('pkk', 'Web\PkkController');
 Route::resource('karangtaruna', 'Web\KtController');
 Route::resource('perangkatdesa', 'Web\PeradesController');
