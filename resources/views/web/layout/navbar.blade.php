@@ -69,7 +69,7 @@
                                                 <a href="{{ route('potensikuliner.index')}}"> Kuliner</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
-                                                <a href="{{ route('potensiperkebunan.index')}}"> Perkebunan</a>
+                                                <a href="{{ route('potensipertanian.index')}}"> Pertanian</a>
                                             </li>
                                             <li class="dropdown dropdown-left dropdown-parent">
                                                 <a href="{{ route('potensiperikanan.index')}}"> Perikanan</a>
@@ -93,7 +93,8 @@
                                             data-title="Home"> Produk Hukum </a>
                                         <ul class="dropdown-menu no-border-radius">
                                             <li><a href="{{ route('aturandesa.index')}}"> Peraturan Desa </a></li>
-                                            <li><a href="{{ route('aturankabupaten.index')}}"> Peraturan Kabupaten </a></li>
+                                            <li><a href="{{ route('skperbekel.index')}}"> SK Perbekel </a></li>
+                                            <li><a href="{{ route('peraturanperbekel.index')}}"> Peraturan Perbekel </a></li>
                                         </ul>
                                     </li>
                                     {{-- <li>
