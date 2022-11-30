@@ -31,7 +31,7 @@
                             ketika I Gusti Agung Maruti berontak terhadap Dalem Di Made di Gelgel pada kurang lebih tahun
                             M.1660,pemberontakan mana berhasil mengangkat I Gusti Agung Maruti untuk menduduki tahta
                             kerajaan Gelgel sejak tahun M.1660 itu dan Dalem Di Made mengungsi ke Guliang. Pada kira-kira th
-                            M.1686,Dalem Di Made wafat di Guliang.Setahun setelah itu putra beliau yang bernama I Dewa Agung
+                            M.1686,Dalem Di Made wafat di Guliang. Setahun setelah itu putra beliau yang bernama I Dewa Agung
                             Jambe memerintahkan paman beliau yang bernama I Gusti Jambe,yang juga ipar I Gusti Agung Maruti
                             guna merebut kembali tahta kerajaan Gelgel yang telah di pegang selama 27 tahun oleh I Gusti
                             Agung Maruti.I Gusti Jambe berangkat dengan segenap laskar. I Dewa Agung Jambe dan karena pada
