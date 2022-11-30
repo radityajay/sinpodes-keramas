@@ -43,7 +43,7 @@
                             Mengwi dan I Gusti Agung Putu Agung yang suka menyendiri dan bersemadi,pada suatu malam
                             menemukan sebuah tempat yang bercahaya gemerlapan seperti emas. Tempat ini adalah Pura Masceti
                             dan kemudian beliau mendapat ilham agar beliau menetap di sebelah utara tempat yang bercahaya
-                            keemasan ini. Tempat inilah pada akhirnya bernama Karamas.Selanjutnya dikenal sekarang dengan
+                            keemasan ini. Tempat inilah pada akhirnya bernama Karamas. Selanjutnya dikenal sekarang dengan
                             nama Keramas. </p>
                     </div>
                 </div>
