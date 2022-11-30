@@ -22,7 +22,8 @@ class NewsImage extends Model
     protected $fillable = [
         'id',
         'new_id',
-        'photo'
+        'photo',
+        'set_front'
     ];
 
     protected static function boot()
