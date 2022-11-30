@@ -98,9 +98,16 @@
                             <div class="col-lg-4 col-sm-4 col-12">
                                 <strong>Foto</strong>
                             </div>
-                            <div class="col-lg-8 col-sm-8 col-12">
-                                <img src="{{$data->photo_url}}" alt="Photo">
+                        </div>
+
+                        <div class="row mb-4">
+                            @foreach ($data->images as $item)
+                            @if ($item->photo)
+                            <div class="col-lg-4 col-sm-4 col-12">
+                                <img src="{{$item->photo_url}}" height="300" alt="Photo">
                             </div>
+                            @endif
+                            @endforeach
                         </div>
 
                     </div>

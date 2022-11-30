@@ -16,7 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $berita = News::with(['images'])->get();
+        $berita = News::with(['images'])->whereHas('images', function ($query) {
+            $query->where('set_front', 1);
+        })->get();
         // $fotoberita = NewsImage::where('new_id', $berita->id)->get();
         // dd($berita);
         return view('web.home',[

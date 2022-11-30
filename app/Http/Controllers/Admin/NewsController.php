@@ -110,13 +110,31 @@ class NewsController extends Controller
                 'status' => 'PENDING',
             ]);
 
-            foreach ($request->list_images as $key => $value) {
-                $data_detail = [
+            if ($request->list_images) {
+                foreach ($request->list_images as $index => $item) {
+                    $product_image = [
+                        'new_id' => $news->id,
+                        'photo' => $item['url'],
+                        'set_front' => $index == 0 ? '1' : '0'
+                    ];
+                    NewsImage::create($product_image);
+                }
+            } else {
+                $product_image = [
                     'new_id' => $news->id,
-                    'photo' => isset($value['url']) ? $value['url'] : null,
+                    'photo' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQMAAADCCAMAAAB6zFdcAAAAQlBMVEX///+hoaGenp6ampr39/fHx8fOzs7j4+P8/Pyvr6/d3d3FxcX29va6urqYmJjs7OzU1NSlpaW1tbWtra3n5+e/v78TS0zBAAACkUlEQVR4nO3b63KCMBCGYUwUUVEO6v3fagWVY4LYZMbZnff51xaZ5jON7CZNEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQb5tvI8qzX4/nH84XG5Upfj2ir2V2E5fZ/XpIX9saMnhkYLIkiyRJjdgMoiEDMmiQgfwM8rSu77ew2wnPoLTmwdZBs0J2BuXrYckcQm4nOoP+WcmWAbcTnUHZPy9eA24nOoN7n0HI54ToDM5k8PjluwyqgNuJzqDoaugPg8gWZ4noDAYLwuIg75fLeeHHsjNIzrZJwWwW+0DNsmEWPjiEZ5AcD8ZUu8VZ8HyQMifvBdIz+PS33i8adu+7Qn4Gn1Tdupl7rlCfQb9seosK7RkcBy1o30iVZ5CPOtDW3WhQnsF13IV3v0p3BqfJRoSpXVepzmA/24+yqeMyzRm4tqOs44lSUwa3yfgOri25av5CPRnklR33VlPnrqSZV09qMsiqSWV082xOz1uPajJ49pTM/f115k6guWa6JGjJ4N1lt8fXN2rv/vysjFaSQdFXBc/KKF04ptFPliclGVR9Bu27XCyeVOkmy5OODAZN9rYyyip/AIPJ8qIig+PoXbf7YdPdncFoSdCQQT4ZceV+MhiFMBy0hgyu0yGvOLI17KwpyGBaHK5jtt0N5GcwLw7XZdB31sRn8O+ziqYro8Vn4CwOV+k6a9Iz+PwRsKC7h+gMfMXhKu/OmuwM/MXhKq8yWnYG/uJw5Uxoy2jRGZTBZ/jboxuSM1guDtdNhKazJjiDbNMe0AxzKUVnkO+jEJxBxNtJzWCTxlNLzSB8KehJ/H+mJGYAjaDjzj9SnHZRuXZiAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAECXP1XDHv7U4SNFAAAAAElFTkSuQmCC',
+                    'setfront' => '1'
                 ];
-                NewsImage::create($data_detail);
+                NewsImage::create($product_image);
             }
+
+            // foreach ($request->list_images as $key => $value) {
+            //     $data_detail = [
+            //         'new_id' => $news->id,
+            //         'photo' => isset($value['url']) ? $value['url'] : null,
+            //     ];
+            //     NewsImage::create($data_detail);
+            // }
 
             return redirect()->route('news.index')
                 ->with('success', 'Berita berhasil dibuat');
@@ -141,7 +159,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $data = News::find($id);
+        $data = News::with(['images'])->where('id', $id)->first();
         // dd($data);
         return view('admin.news.detail', [
             'data' => $data
@@ -199,13 +217,26 @@ class NewsController extends Controller
 
             News::find($id)->update($formData);
 
-            foreach ($request->list_images as $key => $value) {
-                $data_detail = [
-                    'new_id' => $id,
-                    'photo' => isset($value['url']) ? $value['url'] : null,
-                ];
-                NewsImage::where('id',$value['id'])->update($data_detail);
+            NewsImage::where('new_id', $id)->delete();
+            if ($request->list_images && is_array($request->list_images)) {
+                foreach ($request->list_images as $index => $item) {
+                    // dd($index);
+                    $product_image = [
+                        'new_id' => $id,
+                        'photo' => $item['url'],
+                        'set_front' => $index == 0 ? '1' : '0'
+                    ];
+                    NewsImage::create($product_image);
+                }
             }
+
+            // foreach ($request->list_images as $key => $value) {
+            //     $data_detail = [
+            //         'new_id' => $id,
+            //         'photo' => isset($value['url']) ? $value['url'] : null,
+            //     ];
+            //     NewsImage::where('id',$value['id'])->update($data_detail);
+            // }
 
             return redirect()->route('news.index')
                 ->with('success', 'Berita berhasil diubah');
