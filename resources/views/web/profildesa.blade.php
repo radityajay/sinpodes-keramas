@@ -38,7 +38,7 @@
                             hakekatnya antara I Gusti Agung Maruti terdapat hubungan ipar dengan I Gusti Jambe,maka perang
                             tanding yang terjadi di antara mereka mengakibatkan keduanya gugur pada medan di Cedokan
                             Oga.Putra I Gusti Agung Maruti yaitu I Gusti Agung Putu Agung,I Gusti Agung Made Agung dan I
-                            Gusti Agung Ratih,menyingkir ke Jimbaran.Atas keuletan perjuangan mereka dan atas prakarsa I
+                            Gusti Agung Ratih,menyingkir ke Jimbaran. Atas keuletan perjuangan mereka dan atas prakarsa I
                             Gusti Agung Putu Agung sebagai saudara tertua menyebabkan I Gusti Agung Made Agung bertahta di
                             Mengwi dan I Gusti Agung Putu Agung yang suka menyendiri dan bersemadi, pada suatu malam
                             menemukan sebuah tempat yang bercahaya gemerlapan seperti emas. Tempat ini adalah Pura Masceti
