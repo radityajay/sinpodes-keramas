@@ -60,7 +60,7 @@
                                     <tr>
                                         <td>Kode Pos </td>
                                         <td> : </td>
-                                        <td> 80851</td>
+                                        <td> 80581</td>
                                     </tr>
                                     <tr>
                                         <td>Alamat </td>
