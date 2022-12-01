@@ -85,7 +85,7 @@
                                             <p>Auersla, conse ctetur adipis icing lorem ipsum dolor sit amet</p>
                                         </div> --}}
                                         <div class="link-holder">
-                                            <a class="link-more" href="#">LEARN MORE</a>
+                                            <a class="link-more" href="#">Selengkapnya</a>
                                         </div>
                                     </div>
                                 </div>
@@ -102,7 +102,7 @@
                                         <p>Auersla, conse ctetur adipis icing lorem ipsum dolor sit amet</p>
                                     </div> --}}
                                     <div class="link-holder">
-                                        <a class="link-more" href="#">LEARN MORE</a>
+                                        <a class="link-more" href="#">Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                         <p>Auersla, conse ctetur adipis icing lorem ipsum dolor sit amet</p>
                                     </div> --}}
                                     <div class="link-holder">
-                                        <a class="link-more" href="#">LEARN MORE</a>
+                                        <a class="link-more" href="#">Selengkapnya</a>
                                     </div>
                                 </div>
                             </div>
