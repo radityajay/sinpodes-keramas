@@ -116,10 +116,6 @@
                                                 <ul class="content-list contact-list">
                                                     <li><span class="label-text">HELPLINE</span> <a
                                                             href="tel:+62 895 3859 03635">+62 895 3859 03635</a></li>
-                                                    <li><span class="label-text">ENQUIRIE</span> <a
-                                                            href="tel:+62 895 3859 03635">+62 895 3859 03635</a></li>
-                                                    <li><span class="label-text">FAX</span> <a
-                                                            href="tel:+62 895 3859 03635">+62 895 3859 03635</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -127,13 +123,7 @@
                                             <div class="icon"><span class="custom-icon-message"></span></div>
                                             <div class="text">
                                                 <ul class="content-list contact-list">
-                                                    <li><a href="mailto:support@roxine-online">support@roxine-online</a>
-                                                    </li>
-                                                    <li><a
-                                                            href="mailto:info@roxine-online.com">info@roxine-online.com</a>
-                                                    </li>
-                                                    <li><a
-                                                            href="mailto:help@roxine-online.com">help@roxine-online.com</a>
+                                                    <li><a href="mailto:support@roxine-online">kantorkepaladesakeramas@gmail.com</a>
                                                     </li>
                                                 </ul>
                                             </div>
