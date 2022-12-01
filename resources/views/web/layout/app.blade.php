@@ -72,8 +72,8 @@
                         </div> --}}
                         <div class="col-md-4 text-right">
                             <ul class="social-network with-text">
-                                <li><a href="#"><span class="icon-facebook"></span></a></li>
-                                <li><a href="#"><span class="icon-twitter"></span> </a></li>
+                                <li><a href="https://web.facebook.com/kantorperbekel.keramas.9"><span class="icon-facebook"></span></a></li>
+                                <li><a href="#"><span class="icon-twitter"><i class="fab fa-instagram"></i></span> </a></li>
                                 <li><a href="#"><span class="icon-google-plus"></span> </a></li>
                                 <li><a href="#"><span class="icon-pinterest"></span> </a></li>
                                 <li><a href="#"><span class="icon-dribbble"></span> </a></li>
