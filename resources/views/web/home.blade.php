@@ -61,7 +61,7 @@
                                         <div class="icon">
                                             <span class="custom-icon-pen-tool"><span class="sr-only">&amp;</span></span>
                                         </div>
-                                        <h4 class="content-title"><a href="#">Tentang Desa</a></h4>
+                                        <h4 class="content-title">Tentang Desa</h4>
                                         {{-- <div class="des">
                                             <p>Auersla, conse ctetur adipis icing lorem ipsum dolor sit amet</p>
                                         </div> --}}
