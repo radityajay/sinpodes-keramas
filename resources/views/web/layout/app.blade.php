@@ -84,7 +84,7 @@
             </div>
             <div class="footer-bottom text-center">
                 <div class="container">
-                    <p>Copyright 2022 - STMIK Primakara </p>
+                    <p>Copyright 2022 || STMIK Primakara </p>
                 </div>
             </div>
         </footer>
