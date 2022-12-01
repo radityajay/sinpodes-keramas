@@ -51,7 +51,9 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = News::with(['images'])->where('id' , $id)->first();
+
+        return view('web.detailberita', ['data' => $data]);
     }
 
     /**
