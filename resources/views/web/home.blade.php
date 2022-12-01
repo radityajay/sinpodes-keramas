@@ -51,8 +51,8 @@
         <!--/visual/banner of the page -->
         <!-- main content wrapper -->
         <div class="content-wrapper">
-            <section class="content-block">
-                <div class="container">
+            <section class="content-block eighty-percent">
+                <div class="container mb-5">
                     <div class="row multiple-row v-align-row">
                         <div class="col-lg-4 col-md-6">
                             <a href="{{ route('profildesa.index') }}" data-title="Profil Desa">
@@ -65,9 +65,6 @@
                                         {{-- <div class="des">
                                             <p>Auersla, conse ctetur adipis icing lorem ipsum dolor sit amet</p>
                                         </div> --}}
-                                        <div class="link-holder">
-                                            <a class="link-more" href="#">Selengkapnya</a>
-                                        </div>
                                     </div>
                                 </div>
                             </a>
@@ -82,9 +79,6 @@
                                     {{-- <div class="des">
                                         <p>Auersla, conse ctetur adipis icing lorem ipsum dolor sit amet</p>
                                     </div> --}}
-                                    <div class="link-holder">
-                                        <a class="link-more" href="#">Selengkapnya</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -98,71 +92,109 @@
                                     {{-- <div class="des">
                                         <p>Auersla, conse ctetur adipis icing lorem ipsum dolor sit amet</p>
                                     </div> --}}
-                                    <div class="link-holder">
-                                        <a class="link-more" href="#">Selengkapnya</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <div class="content-wrapper">
-                <section class="content-block eighty-percent">
-                    <div class="container-fluid">
-                        <div class="row multiple-row">
-                            @foreach ($berita as $item)
-                                {{-- @if ($item->is_active == 1) --}}
-                                <div class="col-md-6 col-lg-3">
-                                    <div class="col-wrap">
-                                        <div class="post-grid reverse-grid">
-                                            @if (isset($item->images))
-                                                <div class="img-block post-img">
-                                                    @foreach ($item->images as $index => $value)
-                                                        @if ($index == 0)
-                                                            <a href="#"><img src="{{ $value->photo_url }}"
-                                                                    class="img-tl" alt="images"></a>
-                                                        @endif
-                                                    @endforeach
+                <div class="container-fluid py-5">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-auto">
+                            <h3>Berita</h3>
+                        </div>
+                        <div>
+                            <a href="{{ route('berita.index') }}" style="color: black !important"><h6>Selengkapnya <span
+                                class="fa fa-arrow-right"><span
+                                    class="sr-only">&nbsp;</span></span></a></h6></a>
+                        </div>
+                    </div>
+                    <div class="row multiple-row">
+                        @foreach ($berita as $item)
+                            <div class="col-md-6 col-lg-3">
+                                <div class="col-wrap">
+                                    <div class="post-grid reverse-grid">
+                                        @if (isset($item->images))
+                                            <div class="img-block post-img">
+                                                @foreach ($item->images as $index => $value)
+                                                    @if ($index == 0)
+                                                        <a href="{{ route('berita.show', $item->id) }}"><img src="{{ $value->photo_url }}"
+                                                                class="img-tl" alt="images"></a>
+                                                    @endif
+                                                @endforeach
 
-                                                    <time class="post-date"
-                                                        datetime="2016-10-10">{{ date('d M Y', strtotime($item->date)) }}</time>
-                                                </div>
-                                            @endif
+                                                <time class="post-date"
+                                                    datetime="2016-10-10">{{ date('d M Y', strtotime($item->date)) }}</time>
+                                            </div>
+                                        @endif
 
-                                            <div class="post-text-block bg-gray-light">
-                                                <strong class="content-title mb-0"><a
-                                                        href="">{{ $item->title }}</a></strong>
-                                                <span class="content-sub-title">{{ $item->sub_title }}</span>
-                                                <p><?= strlen($item->description) > 100 ? substr($item->description, 0, 100) . '...' : $item->description ?>
-                                                </p>
-                                                <div class="post-meta clearfix">
-                                                    <div class="post-link-holder">
-                                                        <a href="#">Selengkapnya <span
-                                                                class="fa fa-arrow-right"><span
-                                                                    class="sr-only">&nbsp;</span></span></a>
-                                                    </div>
-                                                    <div class="post-social text-right">
-                                                        <ul class="social-network social-small">
-                                                            <li><a href="#"><span class="icon-facebook"><span
-                                                                            class="sr-only">&nbsp;</span></span></a></li>
-                                                            <li><a href="#"><span class="icon-twitter"><span
-                                                                            class="sr-only">&nbsp;</span></span></a></li>
-                                                        </ul>
-                                                    </div>
+                                        <div class="post-text-block bg-gray-light">
+                                            <strong class="content-title mb-0"><a
+                                                    href="{{ route('berita.show', $item->id) }}">{{ $item->title }}</a></strong>
+                                            <span class="content-sub-title">{{ $item->sub_title }}</span>
+                                            <p><?= strlen($item->description) > 100 ? substr($item->description, 0, 100) . '...' : $item->description ?>
+                                            </p>
+                                            <div class="post-meta clearfix">
+                                                <div class="post-link-holder">
+                                                    <a href="{{ route('berita.show', $item->id) }}">Selengkapnya <span
+                                                            class="fa fa-arrow-right"><span
+                                                                class="sr-only">&nbsp;</span></span></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- @endif --}}
-                            @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+                <div class="container-fluid py-5">
+                    <div class="d-flex align-items-center">
+                        <div class="mr-auto">
+                            <h3>Pengumuman</h3>
                         </div>
-                        <div class="btn-container full-width-btn top-space">
-                            <a href="javascript:void(0)" class="btn btn-black">LOAD MORE<span
-                                    class="c-ripple js-ripple"><span class="c-ripple__circle"></span></span></a>
+                        <div>
+                            <a href="{{ route('announ.index') }}" style="color: black !important"><h6>Selengkapnya <span
+                                class="fa fa-arrow-right"><span
+                                    class="sr-only">&nbsp;</span></span></a></h6></a>
                         </div>
                     </div>
+                    <div class="row multiple-row">
+                        @foreach ($pengumuman as $item)
+                            <div class="col-md-6 col-lg-3">
+                                <div class="col-wrap">
+                                    <div class="post-grid reverse-grid">
+                                        <div class="img-block post-img">
+                                            <a href="{{ route('announ.show', $item->id) }}"><img src="{{ $item->photo_url }}"
+                                                class="img-tl" alt="images"></a>
+
+                                            <time class="post-date"
+                                                datetime="2016-10-10">{{ date('d M Y', strtotime($item->date)) }}</time>
+                                        </div>
+
+                                        <div class="post-text-block bg-gray-light">
+                                            <strong class="content-title mb-0"><a
+                                                    href="{{ route('announ.show', $item->id) }}">{{ $item->title }}</a></strong>
+                                            <span class="content-sub-title">{{ $item->sub_title }}</span>
+                                            <p><?= strlen($item->description) > 100 ? substr($item->description, 0, 100) . '...' : $item->description ?>
+                                            </p>
+                                            <div class="post-meta clearfix">
+                                                <div class="post-link-holder">
+                                                    <a href="{{ route('announ.show', $item->id) }}">Selengkapnya <span
+                                                            class="fa fa-arrow-right"><span
+                                                                class="sr-only">&nbsp;</span></span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+            <div class="content-wrapper">
+                <section class="content-block ">
+                    
                 </section>
             </div>
         </div>

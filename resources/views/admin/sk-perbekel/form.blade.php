@@ -75,7 +75,7 @@
                             </div>
                             <div class="mb-3 mt-3">
                                 <label>Deskripsi</label>
-                                <textarea class="form-control" id="ckeditor" name="description" cols="30" rows="3">{{ isset($data) ? $data->description : old('description') }}</textarea>
+                                <textarea class="form-control" name="description" cols="30" rows="3">{{ isset($data) ? $data->description : old('description') }}</textarea>
                                 @if ($errors->any())
                                     @foreach ($errors->getMessages() as $key => $val)
                                         @if($key == "description")

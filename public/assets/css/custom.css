@@ -62,3 +62,11 @@ a {
 .mm-active .active i {
     color: #027e06 !important;
 }
+
+.carousel-control-prev-icon {
+    width: 44px!important;
+    height: 44px!important;
+    border-radius: 100%!important;
+    background: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2),0 6px 20px 0 rgba(0,0,0,.19)!important;
+}

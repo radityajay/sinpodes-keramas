@@ -143,6 +143,7 @@
     <script type="text/javascript" src="/assets/web/vendors/rev-slider/revolution-addons/snow/revolution.addon.snow.min.js"></script>
     <!-- Revolution Slider Script -->
     <script src="/assets/web/js/revolution.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     @stack('script')
 </body>
 

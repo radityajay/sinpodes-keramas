@@ -2,10 +2,10 @@
 @section('title', 'Peraturan Desa')
 @section('content')
 
-<div>
+<div id="app">
     <!-- visual/banner of the page -->
     <section class="visual">
-        <div class="visual-inner blog-default-banner dark-overlay parallax" data-stellar-background-ratio="0.55">
+        <div class="visual-inner about-banner dark-overlay parallax" data-stellar-background-ratio="0.55">
             <div class="container">
                 <div class="visual-text-large text-left visual-center">
                     <h1 class="visual-title visual-sub-title">Peraturan Desa</h1>
@@ -25,249 +25,118 @@
     <!-- main content wrapper -->
     <div class="content-wrapper">
         <section class="content-block">
-            <div class="container">
-                <div class="row multiple-row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-31.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#"><a href="#">Heading South</a></strong>
-                                    <span class="content-sub-title">Where’s Responsive Design?</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+            <div class="container pb-5">
+                <div class="card">
+                    <div class="py-3 px-3">
+                        <h5>Filter</h5>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Start Date</label>
+                                    <input type="date" class="form-control" name="start_date" v-model="filter.start_date" value="{{date('Y-m-01')}}">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-32.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Product Design</a></strong>
-                                    <span class="content-sub-title">Thechnology and Trends</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+            
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>End Date</label>
+                                    <input type="date" class="form-control" name="end_date" v-model="filter.end_date" value="{{date('Y-m-t')}}">
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-33.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Working Remotely</a></strong>
-                                    <span class="content-sub-title">Home office working for you.</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-34.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Leaving With A Note</a></strong>
-                                    <span class="content-sub-title">If you want to get back again.</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-35.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Break Timings</a></strong>
-                                    <span class="content-sub-title">Spending them wisely.</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-36.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Heading South</a></strong>
-                                    <span class="content-sub-title">Where’s Responsive Design?</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-37.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Working Remotely</a></strong>
-                                    <span class="content-sub-title">Home office working for you.</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-30.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Leaving With A Note</a></strong>
-                                    <span class="content-sub-title">If you want to get back again.</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="col-wrap">
-                            <div class="post-grid reverse-grid">
-                                <div class="img-block post-img">
-                                    <a href="#"><img src="img/img-32.jpg" alt="images"></a>
-                                    <time class="post-date" datetime="2016-10-10">17 Jun</time>
-                                </div>
-                                <div class="post-text-block bg-gray-light">
-                                    <strong class="content-title mb-0"><a href="#">Break Timings</a></strong>
-                                    <span class="content-sub-title">Spending them wisely.</span>
-                                    <p>This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Auctor, nisi elit consequat ipsum,</p>
-                                    <div class="post-meta clearfix">
-                                        <div class="post-link-holder">
-                                            <a href="#">Read Story <span class="fa fa-arrow-right"><span class="sr-only">&nbsp;</span></span></a>
-                                        </div>
-                                        <div class="post-social text-right">
-                                            <ul class="social-network social-small">
-                                                <li><a href="#"><span class="icon-facebook"><span class="sr-only">&nbsp;</span></span></a></li>
-                                                <li><a href="#"><span class="icon-twitter"><span class="sr-only">&nbsp;</span></span></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+            
+                            <div class="col-md-4">
+                                <button class="btn btn-warning" id="btn-filter" style="margin-top: 25px;" type="button">
+                                    </i> Filter
+                                </button>
+            
+                                <button class="btn btn-success" id="btn-reset" style="margin-top: 25px;" type="button">
+                                    <i class="fas fa-sync"></i> Reset
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="btn-container full-width-btn top-space">
-                        <a href="javascript:void(0)" class="btn btn-black">LOAD MORE<span class="c-ripple js-ripple"><span class="c-ripple__circle"></span></span></a>
+            </div>
+            <div class="container">
+                <div class="row multiple-row">
+                    <div v-for="(item, index) in responeData" :key="'productlistdata'+index" class="col-md-6 col-lg-3">
+                        <div class="col-wrap">
+                            <div class="post-grid reverse-grid">
+
+                                <div class="post-text-block bg-gray-light" style="width: 15rem !important">
+                                    <strong class="content-title mb-0">@{{ item.title }}</strong>
+                                    <span class="content-sub-title"></span>
+                                    <p>@{{ item.description }}</p>
+                                    <div class="post-meta clearfix">
+                                        <div class="post-link-holder">
+                                            <div>
+                                                <a class="btn btn-sm btn-primary px-4 rounded" :href="`${item.file_url}`" target="_blank">
+                                                    {{__('Download')}}
+                                                    <i class="mdi mdi-download"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
+                </div>
             </div>
         </section>
     </div>
     <!--/main content wrapper -->
 </div>
 @endsection
+@push('script')
+    <script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            responeData: {!! json_encode(old('responeData') ? old('responeData') : (isset($data) ? $data : [])) !!},
+            filter:{
+                start_date: null,
+                end_date: null,
+            }
+        },
+        mounted(){
+            let self = this
+            $('#btn-filter').on('click', function(){
+                $.ajax({ 
+                    type: "GET",
+                    url: '/filter-desa?start_date='+ self.filter.start_date +'&end_date='+ self.filter.end_date,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    },
+                    success: function (response) {
+                        self.responeData = response
+                        console.log(response)
+                    },
+                });
+            })
+
+            $('#btn-reset').on('click', function(){
+                window.location.reload()
+            })
+        },
+        methods:{
+            btnFilter(){
+                
+                $.ajax({ 
+                    type: "GET",
+                    url: '/filter-desa?start_date='+ this.filter.start_date +'&end_date='+ this.filter.end_date,
+                    data: {
+                        "_token": "{{ csrf_token() }}",
+                    },
+                    success: function (response) {
+                        this.responeData = response
+                        console.log(response)
+                    },
+                });
+            }
+        }
+    })
+    </script>
+@endpush

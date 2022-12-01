@@ -22,6 +22,19 @@ class SkperbekelController extends Controller
         ]);
     }
 
+    public function filter(Request $request){
+        // dd($request->all());
+        $data = SKPerbekel::when(($request->start_date != null && $request->start_date != '')
+        && ($request->end_date != null && $request->end_date != ''), function ($query) use($request) {
+        $start_date = $request->start_date != null && $request->start_date != '' ? date('Y-m-d', strtotime($request->start_date)) : null;
+        $end_date = $request->end_date != null && $request->end_date != '' ? date('Y-m-d', strtotime($request->end_date)) : null;
+
+        return $query->whereBetween('date', [$start_date, $end_date]);
+        })->get();
+
+        return response()->json($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

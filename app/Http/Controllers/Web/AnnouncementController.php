@@ -15,7 +15,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $data = Announcement::orderBy('created_at','asc')->get();
+        $data = Announcement::where('status', 'ACCEPTED')->get();
         // dd($data);
         return view('web.announcement', [
             'data' => $data
@@ -51,7 +51,9 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Announcement::where('id' , $id)->first();
+        // dd($data);
+        return view('web.detailPengumuman', ['data' => $data]);
     }
 
     /**

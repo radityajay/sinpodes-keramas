@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Web;
 
+use App\Announcement;
 use App\Http\Controllers\Controller;
 use App\News;
 use App\NewsImage;
@@ -18,11 +19,14 @@ class HomeController extends Controller
     {
         $berita = News::with(['images'])->whereHas('images', function ($query) {
             $query->where('set_front', 1);
-        })->get();
+        })->where('status', 'ACCEPTED')->limit(4)->get();
+
+        $pengumuman = Announcement::where('status', 'ACCEPTED')->limit(4)->get();
         // $fotoberita = NewsImage::where('new_id', $berita->id)->get();
         // dd($berita);
         return view('web.home',[
             'berita' => $berita,
+            'pengumuman' => $pengumuman,
             // 'fotoberita' => $fotoberita
         ]);
     }

@@ -15,10 +15,12 @@ class BeritaController extends Controller
      */
     public function index()
     {
-        $data = News::orderBy('created_at','asc')->get();
+        $berita = News::with(['images'])->whereHas('images', function ($query) {
+            $query->where('set_front', 1);
+        })->where('status', 'ACCEPTED')->get();
         // dd($data);
         return view('web.berita', [
-            'data' => $data
+            'berita' => $berita
         ]);
     }
 
@@ -52,7 +54,7 @@ class BeritaController extends Controller
     public function show($id)
     {
         $data = News::with(['images'])->where('id' , $id)->first();
-
+        // dd($data);
         return view('web.detailberita', ['data' => $data]);
     }
 

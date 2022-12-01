@@ -99,7 +99,7 @@
                                 <strong>Foto</strong>
                             </div>
                             <div class="col-lg-8 col-sm-8 col-12">
-                                <img src="{{$data->photo_url}}" alt="Photo">
+                                <img src="{{$data->photo_url}}" height="200" alt="Photo">
                             </div>
                         </div>
 

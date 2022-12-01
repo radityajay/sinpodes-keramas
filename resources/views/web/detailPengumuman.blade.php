@@ -1,35 +1,16 @@
 @extends('web.layout.app')
-@section('title', 'Detail Berita')
+@section('title', 'Detail Pengumuman')
 @section('content')
 <div>
     <!-- visual/banner of the page -->
     
     <section class="visual">
-        <div id="carouselExampleControls" class="carousel slide dark-overlay" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-                {{-- <div class="carousel-item active">
-                    <img src="..." class="d-block w-100" alt="...">
-                </div> --}}
-                @foreach ($data->images as $item)
-                @if ($item->photo)
-                <div class="carousel-item @if($loop->first) active @endif">
-                    <img src="{{ $item->photo_url }}" sizes="sm:100vw md:640px lg:1024px xl:1600px" class="d-block w-100" alt="...">
+                <div class="carousel-item active">
+                    <img src="{{ $data->photo_url }}" height="100" class="d-block w-100" alt="...">
                 </div>
-                @endif
-                @endforeach
-                
-                {{-- <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
-                </div> --}}
             </div>
-            <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </button>
         </div>
         {{-- <div class="visual-inner dark-overlay parallax" data-stellar-background-ratio="0.55">
             
