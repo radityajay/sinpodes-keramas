@@ -63,16 +63,6 @@
             <section class="content-block">
                 <div class="container">
                     <div class="row multiple-row v-align-row">
-                        <!-- <div class="col-lg-4 col-md-6">
-                                            <div class="col-wrap">
-                                                <div class="block-heading">
-                                                    <h3 class="block-top-heading">WHAT WE DO</h3>
-                                                    <h2 class="block-main-heading">EXPERTS</h2>
-                                                    <span class="block-sub-heading">We build digital solutions.</span>
-                                                    <div class="divider"><img src="img/divider.png" alt="images description"></div>
-                                                </div>
-                                            </div>
-                                        </div> -->
                         <div class="col-lg-4 col-md-6">
                             <a href="{{ route('profildesa.index') }}" data-title="Profil Desa">
                                 <div class="col-wrap">
