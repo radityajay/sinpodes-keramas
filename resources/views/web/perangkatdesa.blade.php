@@ -8,14 +8,14 @@
             <div class="container">
                 <div class="visual-text-large text-left visual-center">
                     <h1 class="visual-title visual-sub-title">Perangkat Desa</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit porro laudantium sequi. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                    <div class="breadcrumb-block">
+                    {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit porro laudantium sequi. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> --}}
+                    {{-- <div class="breadcrumb-block">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html"> Home </a></li>
                             <li class="breadcrumb-item"><a href="index.html"> Elements </a></li>
                             <li class="breadcrumb-item active"> Animations </li>
                         </ol>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -25,12 +25,12 @@
     <div class="content-wrapper">
         <section class="content-block">
             <div class="container">
-                <div class="heading bottom-space text-center">
+                {{-- <div class="heading bottom-space text-center">
                     <h2>Learn. <span>Acheive.</span> Admire</h2>
-                </div>
-                <div class="description text-center">
+                </div> --}}
+                {{-- <div class="description text-center">
                     <p>Delightful unreserved impossible few estimating men favourable see entreaties. She propriety immediate was improving. He or entrance humoured likewise moderate. Much nor game son say feel. Fat make met can must form into gate. Me we offending prevailed discovery. </p>
-                </div>
+                </div> --}}
                 <div class="row">
                     @foreach ($data as $item)
                     <div class="col-md-4">
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </section>
-        <section class="content-block quotation-block black-overlay-6 parallax" data-stellar-background-ratio="0.55">
+        {{-- <section class="content-block quotation-block black-overlay-6 parallax" data-stellar-background-ratio="0.55">
             <div class="container">
                 <div class="inner-wrapper">
                     <h3 class="block-top-heading text-white">BEST EVER DESIGN</h3>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </div>
-        </aside>
+        </aside> --}}
     </div>
     <!--/main content wrapper -->
 </div>

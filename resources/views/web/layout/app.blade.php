@@ -57,7 +57,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="footer-logo">
-                                <img src="img/logo-dark.svg" alt="image-description">
+                                <img src="/assets/web/img/logoo.png" style="height: 100px !important" alt="image-description">
                             </div>
                         </div>
                         {{-- <div class="col-md-4">
