@@ -60,7 +60,7 @@
                                 <img src="img/logo-dark.svg" alt="image-description">
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        {{-- <div class="col-md-4">
                             <div class="footer-nav inline-nav text-center">
                                 <ul>
                                     <li><a href="#">Home</a></li>
@@ -69,7 +69,7 @@
                                     <li><a href="#">Contact</a></li>
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
                         <div class="col-md-4 text-right">
                             <ul class="social-network with-text">
                                 <li><a href="#"><span class="icon-facebook"></span></a></li>
@@ -84,7 +84,7 @@
             </div>
             <div class="footer-bottom text-center">
                 <div class="container">
-                    <p>Copyright 2016 - Roxine - Multi Purpose Theme by Waituk </p>
+                    <p>Copyright 2022 - STMIK Primakara </p>
                 </div>
             </div>
         </footer>
